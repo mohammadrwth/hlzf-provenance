@@ -1,0 +1,215 @@
+{
+ "created_at": "2026-10-03T16:32:46.150531+00:00",
+ "key": "83c3d2cc1144914e88e13fdb721e2ddb",
+ "model": "glm-ocr",
+ "page": 1,
+ "response": {
+  "created": 1791045166,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2805,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "20261004003244efb36bd5f1954503",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      307,
+      141,
+      1048,
+      202
+     ],
+     "content": "<div align=\"center\">\n\n# SWW WUNSIEDEL GMBH\n\n</div>",
+     "height": 2805,
+     "index": 0,
+     "label": "text",
+     "native_label": "doc_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      303,
+      266,
+      1317,
+      312
+     ],
+     "content": "## Individuelle Netzentgelte nach § 19 Abs. 2 S. 1 StromNEV",
+     "height": 2805,
+     "index": 1,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      301,
+      282,
+      1562,
+      449
+     ],
+     "content": "Individuelle Netzentgeite nach § 19 Abs. 2 S. 1 StromNEV\n\nNetzkunden mit atypischen Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der\n\nStromnetzentgeltverordnung (StromNEV) ein individuelles Netzentgelt für die\n\nNetznutzung bei der Bundesnetzagentur (BNetzA) beantragen.",
+     "height": 2805,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      301,
+      484,
+      1543,
+      612
+     ],
+     "content": "Atypisches Verbrauchsverhalten liegt vor, wenn die Zeitpunkte des maximalen Energiebezugs eines Netzkunden außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster liegen.",
+     "height": 2805,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      300,
+      649,
+      1585,
+      735
+     ],
+     "content": "Nach der Festlegung der BNetzA BK4-13-739 vom 11. Dezember 2013 veröffentlichten wir folgende Hochlastzeitfenster:",
+     "height": 2805,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      302,
+      876,
+      1561,
+      924
+     ],
+     "content": "<div align=\"center\">\n\nHochlastzeitfenster gemäß Festlegung BK4-13-739 der BNetzA für 2024\n\n</div>",
+     "height": 2805,
+     "index": 5,
+     "label": "text",
+     "native_label": "figure_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      302,
+      935,
+      1626,
+      1498
+     ],
+     "content": "<table border=\"1\"><tr><td>ENTNAHME</td><td>FRÜHLINGMrz. bis Mai</td><td>SOMMERJun. - Aug.</td><td>HERBSTSep. - Nov.</td><td>WINTERDez. - Feb.</td></tr><tr><td>NETZEBENE 5</td><td>-</td><td>-</td><td>-</td><td>16:00-19:00</td></tr><tr><td>NETZEBENE 6</td><td>-</td><td>-</td><td>17:00-20:00</td><td>8:30-9:3011:00-14:00</td></tr><tr><td>NETZEBENE 7</td><td>11:00-14:00</td><td>-</td><td>17:00-20:00</td><td>11:00-14:00</td></tr></table>",
+     "height": 2805,
+     "index": 6,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      300,
+      1629,
+      1625,
+      1797
+     ],
+     "content": "Die Hochlastzeitfenster sind ausschließlich an Werktagen gültig. Brückentage werden als Werktage betrachtet. Wochenenden, Feiertage sowie die Zeit zwischen Weihnachten und Neujahr gelten als Nebenzeiten/Schwachlastzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.",
+     "height": 2805,
+     "index": 7,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      301,
+      1835,
+      1526,
+      1920
+     ],
+     "content": "Zur Inanspruchnahme des Sonderentgelts müssen gemäß des oben genannten Beschlusses weiterführende Bedingungen erfüllt sein. Insbesondere sind das:",
+     "height": 2805,
+     "index": 8,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      303,
+      1920,
+      1535,
+      1996
+     ],
+     "content": "- eine Bagatellgrenze, die jährliche Entgeltreduzierung muss mindestens 500,00 € betragen.",
+     "height": 2805,
+     "index": 9,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      300,
+      2000,
+      1478,
+      2165
+     ],
+     "content": "- der maximale Energiebezug (Maximallast) des Netzkunden innerhalb der Hochlastzeitfenster muss erheblich unter seiner Jahreshöchstlast liegen. Die hierfür geltenden Erheblichkeitsschwellen sind der folgenden Tabelle zu entnehmen:",
+     "height": 2805,
+     "index": 10,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      302,
+      2207,
+      1113,
+      2436
+     ],
+     "content": "<table border=\"1\"><tr><td>ENTNAHME</td><td>ERHEBLICHKEITSSCHWELLE</td></tr><tr><td>NETZEBENE5</td><td>20%</td></tr><tr><td>NETZEBENE6</td><td>30%</td></tr><tr><td>NETZEBENE7</td><td>30%</td></tr></table>",
+     "height": 2805,
+     "index": 11,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      302,
+      2475,
+      1422,
+      2600
+     ],
+     "content": "- die Differenz zwischen der Jahreshöchstlast des Netzkunden und seiner Maximallast innerhalb der Hochlastzeitfenster muss mindestens 100 kW betragen.",
+     "height": 2805,
+     "index": 12,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "<div align=\"center\">\n\n# SWW WUNSIEDEL GMBH\n\n</div>\n\n## Individuelle Netzentgelte nach § 19 Abs. 2 S. 1 StromNEV\n\nIndividuelle Netzentgeite nach § 19 Abs. 2 S. 1 StromNEV\n\nNetzkunden mit atypischen Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der\n\nStromnetzentgeltverordnung (StromNEV) ein individuelles Netzentgelt für die\n\nNetznutzung bei der Bundesnetzagentur (BNetzA) beantragen.\n\nAtypisches Verbrauchsverhalten liegt vor, wenn die Zeitpunkte des maximalen Energiebezugs eines Netzkunden außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster liegen.\n\nNach der Festlegung der BNetzA BK4-13-739 vom 11. Dezember 2013 veröffentlichten wir folgende Hochlastzeitfenster:\n\n<div align=\"center\">\n\nHochlastzeitfenster gemäß Festlegung BK4-13-739 der BNetzA für 2024\n\n</div>\n\n<table border=\"1\"><tr><td>ENTNAHME</td><td>FRÜHLINGMrz. bis Mai</td><td>SOMMERJun. - Aug.</td><td>HERBSTSep. - Nov.</td><td>WINTERDez. - Feb.</td></tr><tr><td>NETZEBENE 5</td><td>-</td><td>-</td><td>-</td><td>16:00-19:00</td></tr><tr><td>NETZEBENE 6</td><td>-</td><td>-</td><td>17:00-20:00</td><td>8:30-9:3011:00-14:00</td></tr><tr><td>NETZEBENE 7</td><td>11:00-14:00</td><td>-</td><td>17:00-20:00</td><td>11:00-14:00</td></tr></table>\n\nDie Hochlastzeitfenster sind ausschließlich an Werktagen gültig. Brückentage werden als Werktage betrachtet. Wochenenden, Feiertage sowie die Zeit zwischen Weihnachten und Neujahr gelten als Nebenzeiten/Schwachlastzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.\n\nZur Inanspruchnahme des Sonderentgelts müssen gemäß des oben genannten Beschlusses weiterführende Bedingungen erfüllt sein. Insbesondere sind das:\n\n- eine Bagatellgrenze, die jährliche Entgeltreduzierung muss mindestens 500,00 € betragen.\n\n- der maximale Energiebezug (Maximallast) des Netzkunden innerhalb der Hochlastzeitfenster muss erheblich unter seiner Jahreshöchstlast liegen. Die hierfür geltenden Erheblichkeitsschwellen sind der folgenden Tabelle zu entnehmen:\n\n<table border=\"1\"><tr><td>ENTNAHME</td><td>ERHEBLICHKEITSSCHWELLE</td></tr><tr><td>NETZEBENE5</td><td>20%</td></tr><tr><td>NETZEBENE6</td><td>30%</td></tr><tr><td>NETZEBENE7</td><td>30%</td></tr></table>\n\n- die Differenz zwischen der Jahreshöchstlast des Netzkunden und seiner Maximallast innerhalb der Hochlastzeitfenster muss mindestens 100 kW betragen.",
+  "model": "glm-ocr",
+  "request_id": "20261004003244efb36bd5f1954503",
+  "usage": {
+   "completion_tokens": 885,
+   "prompt_tokens": 3128,
+   "total_tokens": 4013
+  }
+ },
+ "source": "live"
+}

@@ -1,0 +1,214 @@
+{
+ "created_at": "2026-10-03T19:42:27.223234+00:00",
+ "key": "270941b5c74700c65df1c6d58298c003",
+ "model": "glm-ocr",
+ "page": 1,
+ "response": {
+  "created": 1791056547,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2808,
+     "width": 1986
+    }
+   ]
+  },
+  "id": "202610040342259b2588acb54e4425",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1355,
+      130,
+      1764,
+      248
+     ],
+     "height": 2808,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      379,
+      1806,
+      616
+     ],
+     "content": "Netznutzer mit atypischem Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung ein Sonderentgelt für die Netznutzung beantragen. Atypisches Verbrauchsverhalten liegt dann vor, wenn die Zeitpunkte des maximalen Energiebezugs (Maximallast) eines Netzkunden außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster (Zeitraum der maximalen Netzlast) liegen.",
+     "height": 2808,
+     "index": 1,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      654,
+      1806,
+      752
+     ],
+     "content": "Die Zeitfenster sind für jeden Netzbetreiber gesondert und für jede Netz- und Umspannebene individuell zu bestimmen.",
+     "height": 2808,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      178,
+      793,
+      1804,
+      888
+     ],
+     "content": "Relevant ist jeweils die Netz- oder Umspannebene, aus welcher der Letztverbraucher elektrische Energie entnimmt.",
+     "height": 2808,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      930,
+      1804,
+      1028
+     ],
+     "content": "Die Bestimmung der Hochlastzeitfenster erfolgt hierbei auf Basis des durch die Bundesnetzagentur veröffentlichten Beschlusses BK4-13-739.",
+     "height": 2808,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      180,
+      1069,
+      1799,
+      1164
+     ],
+     "content": "Die Beantragung von reduzierten Netzentgelten hat nach den Vorschriften des o.g. Beschlusses der Bundesnetzagentur zu erfolgen.",
+     "height": 2808,
+     "index": 5,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      1207,
+      1806,
+      1304
+     ],
+     "content": "Hieraus ergeben sich alle Voraussetzungen, die erfüllt sein müssen, um ein reduziertes Netzentgelt nach § 19 Abs. 2 Satz 1 StromNEV zu erhalten.",
+     "height": 2808,
+     "index": 6,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      1345,
+      1806,
+      1489
+     ],
+     "content": "Voraussetzung zur Beantragung von reduzierten Netzentgelten nach § 19 Abs. 2 Satz 1 StromNEV ist unter anderem eine von Netznutzer und Verteilnetzbetreiber unterzeichnete Vereinbarung zu dieser Regelung.",
+     "height": 2808,
+     "index": 7,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      180,
+      1575,
+      368,
+      1622
+     ],
+     "content": "## Hinweise",
+     "height": 2808,
+     "index": 8,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      1667,
+      1804,
+      1858
+     ],
+     "content": "Die Hochlastzeitfenster werden ausschließlich für Werkage ermittelt. Wochenenden, Feiertage, maximal ein Brückentag sowie die Zeit zwischen Weihnachten und Neujahr sind Schwachlastzeiten. An solchen Tagen tritt die zeitgleiche Jahreshöchstlast regelmäßig nicht ein.",
+     "height": 2808,
+     "index": 9,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      180,
+      1897,
+      1807,
+      2039
+     ],
+     "content": "Bei den Zeiten ist jeweils das Ende des 1/4-Stunden-Intervalls angegeben (z.B. entspricht ein Hochlastzeitfenster von 08:00 bis 11:30 den Messwerten mit den Zeitstempeln von 08:15 bis 11:30).",
+     "height": 2808,
+     "index": 10,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      182,
+      2127,
+      435,
+      2174
+     ],
+     "content": "## Jahreszeiten",
+     "height": 2808,
+     "index": 11,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      179,
+      2217,
+      1065,
+      2407
+     ],
+     "content": "<table border=\"1\"><tr><td>Frühling</td><td>März</td><td>bis</td><td>Mai</td></tr><tr><td>Sommer</td><td>Juni</td><td>bis</td><td>August</td></tr><tr><td>Herbst</td><td>September</td><td>bis</td><td>November</td></tr><tr><td>Winter</td><td>Dezember</td><td>bis</td><td>Februar</td></tr></table>",
+     "height": 2808,
+     "index": 12,
+     "label": "table",
+     "native_label": "table",
+     "width": 1986
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1355, 130, 1764, 248])\n\nNetznutzer mit atypischem Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung ein Sonderentgelt für die Netznutzung beantragen. Atypisches Verbrauchsverhalten liegt dann vor, wenn die Zeitpunkte des maximalen Energiebezugs (Maximallast) eines Netzkunden außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster (Zeitraum der maximalen Netzlast) liegen.\n\nDie Zeitfenster sind für jeden Netzbetreiber gesondert und für jede Netz- und Umspannebene individuell zu bestimmen.\n\nRelevant ist jeweils die Netz- oder Umspannebene, aus welcher der Letztverbraucher elektrische Energie entnimmt.\n\nDie Bestimmung der Hochlastzeitfenster erfolgt hierbei auf Basis des durch die Bundesnetzagentur veröffentlichten Beschlusses BK4-13-739.\n\nDie Beantragung von reduzierten Netzentgelten hat nach den Vorschriften des o.g. Beschlusses der Bundesnetzagentur zu erfolgen.\n\nHieraus ergeben sich alle Voraussetzungen, die erfüllt sein müssen, um ein reduziertes Netzentgelt nach § 19 Abs. 2 Satz 1 StromNEV zu erhalten.\n\nVoraussetzung zur Beantragung von reduzierten Netzentgelten nach § 19 Abs. 2 Satz 1 StromNEV ist unter anderem eine von Netznutzer und Verteilnetzbetreiber unterzeichnete Vereinbarung zu dieser Regelung.\n\n## Hinweise\n\nDie Hochlastzeitfenster werden ausschließlich für Werkage ermittelt. Wochenenden, Feiertage, maximal ein Brückentag sowie die Zeit zwischen Weihnachten und Neujahr sind Schwachlastzeiten. An solchen Tagen tritt die zeitgleiche Jahreshöchstlast regelmäßig nicht ein.\n\nBei den Zeiten ist jeweils das Ende des 1/4-Stunden-Intervalls angegeben (z.B. entspricht ein Hochlastzeitfenster von 08:00 bis 11:30 den Messwerten mit den Zeitstempeln von 08:15 bis 11:30).\n\n## Jahreszeiten\n\n<table border=\"1\"><tr><td>Frühling</td><td>März</td><td>bis</td><td>Mai</td></tr><tr><td>Sommer</td><td>Juni</td><td>bis</td><td>August</td></tr><tr><td>Herbst</td><td>September</td><td>bis</td><td>November</td></tr><tr><td>Winter</td><td>Dezember</td><td>bis</td><td>Februar</td></tr></table>",
+  "model": "glm-ocr",
+  "request_id": "202610040342259b2588acb54e4425",
+  "usage": {
+   "completion_tokens": 673,
+   "prompt_tokens": 2846,
+   "total_tokens": 3519
+  }
+ },
+ "source": "live"
+}

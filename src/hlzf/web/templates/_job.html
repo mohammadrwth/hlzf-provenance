@@ -1,0 +1,57 @@
+{%- set r = j.result -%}
+{%- set outcome = {'queued': 'Queued', 'running': 'Reading', 'done': 'Read', 'failed': 'Failed',
+                   'interrupted': 'Interrupted', 'duplicate': 'Already known',
+                   'rejected': 'Not accepted'} -%}
+<article class="job {{ j.status }}" id="job-{{ j.jid }}" aria-live="polite"
+  {%- if not j.terminal %} hx-get="/upload/job/{{ j.jid }}{% if auto %}?auto=1{% endif %}" hx-trigger="every 1s" hx-swap="outerHTML"{% endif %}>
+  <header class="job-head">
+    <div>
+      <strong class="fname">{{ j.filename }}</strong>
+      <div class="small faint">
+        {%- if r.pages %}{{ r.pages }} page{{ 's' if r.pages != 1 }}, {{ (r.bytes / 1024)|round|int }} KB, sha256 {{ (r.sha256 or '')[:12] }}…, {% endif -%}
+        uploaded by {{ j.uploaded_by or 'unknown' }}</div>
+    </div>
+    <span class="jobstate {{ j.status }}">{{ outcome.get(j.status, j.status) }}{% if j.elapsed is not none and j.status in ('queued', 'running', 'done') %} <span class="faint">{{ j.elapsed|round|int }} s</span>{% endif %}</span>
+  </header>
+
+  {% if j.status in ('queued', 'running', 'done', 'failed', 'interrupted') %}
+  <ol class="steps" aria-label="Progress">
+    {% for st in j.stages %}<li class="{{ st.state }}"{% if st.state == 'active' %} aria-current="step"{% endif %}><span>{{ st.label }}</span></li>{% endfor %}
+  </ol>
+  {% if not j.terminal %}<p class="now small">Step {{ j.stage_no }} of {{ j.stages|length }}: {{ j.stage_label }}</p>{% endif %}
+  {% endif %}
+
+  {% if not j.terminal %}
+    <p class="small muted joblog">{{ j.log[-1] if j.log else ('Waiting for the job before it' if j.status == 'queued' else 'Starting…') }}</p>
+  {% endif %}
+
+  {% if r.looks_like_hlzf == false and j.status not in ('rejected', 'duplicate') %}
+    <p class="small warnline">The text never mentions Hochlast, atypische Netznutzung or § 19 Abs. 2; this may not be an HLZF publication.</p>
+  {% endif %}
+
+  {% if j.status == 'done' %}
+  <div class="job-result">
+    <dl class="mini">
+      <div><dt>Read as</dt><dd><a href="/doc/{{ j.document_id }}">{{ r.dso or j.filename }}</a>{% if r.year %}, {{ r.year }}{% endif %}</dd></div>
+      <div><dt>Status</dt><dd><span class="status {{ r.doc_status }}">{{ status_labels.get(r.doc_status, r.doc_status) }}</span></dd></div>
+      <div><dt>Windows</dt><dd>{{ r.windows }}{% if r.auto %} <span class="small muted">({{ r.auto }} auto-corrected)</span>{% endif %}</dd></div>
+      <div><dt>To review</dt><dd>{{ r.review }}{% if r.errors or r.warnings %} <span class="small muted">({{ r.errors }} error{{ 's' if r.errors != 1 }}, {{ r.warnings }} warning{{ 's' if r.warnings != 1 }} open)</span>{% endif %}</dd></div>
+      <div><dt>Model calls</dt><dd>{{ r.live_calls }} live{% if r.calls - r.live_calls %}, {{ r.calls - r.live_calls }} cached{% endif %}{% if r.cost %} <span class="small muted">(${{ '%.4f'|format(r.cost) }})</span>{% endif %}</dd></div>
+    </dl>
+    <a class="button" href="/doc/{{ j.document_id }}">Open the document</a>
+  </div>
+  {% elif j.status in ('failed', 'interrupted') %}
+  <p class="joberr">{{ j.error }}</p>
+  {% if j.log %}<details class="small"><summary>Log ({{ j.log|length }} lines)</summary><pre class="logpre">{{ j.log|join('\n') }}</pre></details>{% endif %}
+  {% if j.document_id %}
+  <form method="post" action="/upload/job/{{ j.jid }}/retry" class="row" style="margin-top:.5rem">
+    <button type="submit">Retry</button>
+    {% if j.document_id %}<a class="small" href="/doc/{{ j.document_id }}">what was read so far</a>{% endif %}
+  </form>
+  {% endif %}
+  {% elif j.status == 'duplicate' %}
+  <p class="small">The same bytes are already in the corpus as <a href="/doc/{{ j.document_id }}">{{ j.document_id }}</a>{% if not r.processed %} (registered, not processed yet: run <code>hlzf run</code>){% endif %}. Not processed twice.</p>
+  {% elif j.status == 'rejected' %}
+  <p class="joberr">{{ j.error }}</p>
+  {% endif %}
+</article>

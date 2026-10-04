@@ -1,0 +1,158 @@
+{
+ "created_at": "2026-10-03T18:45:33.274818+00:00",
+ "key": "b69d695fa5417940ec3eaca592d38547",
+ "model": "glm-ocr",
+ "page": 1,
+ "response": {
+  "created": 1791053133,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2806,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "2026100402452986297aaf04f342bb",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      73,
+      341,
+      632,
+      491
+     ],
+     "height": 2806,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      337,
+      542,
+      1649,
+      599
+     ],
+     "content": "<div align=\"center\">\n\n# Individuelle Netzentgelten nach § 19 Abs. 2 S. 1 StromNEV\n\n</div>",
+     "height": 2806,
+     "index": 1,
+     "label": "text",
+     "native_label": "doc_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      359,
+      651,
+      1626,
+      744
+     ],
+     "content": "Netzkunden mit atypischen Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung ein Sonderentgelt für die Netznutzung beantragen.",
+     "height": 2806,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      460,
+      792,
+      1524,
+      843
+     ],
+     "content": "## Hochlast-Zeitfenster gemäß Leitfaden BNetzA für: 2026",
+     "height": 2806,
+     "index": 3,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      435,
+      894,
+      1550,
+      939
+     ],
+     "content": "Referenzzeitraum: September des Vor-Vorjahres bis August des Vorjahres",
+     "height": 2806,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      82,
+      984,
+      1901,
+      1070
+     ],
+     "content": "<div align=\"center\">\n\nAuf Basis des Referenzzeitraums ergeben sich nach dem Leitfaden der Bundesnetzagentur zur Genehmigung individueller Netzentgeltvereinbarungen folgende Hochlastzeitfenster.\n\n</div>",
+     "height": 2806,
+     "index": 5,
+     "label": "text",
+     "native_label": "figure_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      73,
+      1108,
+      1912,
+      2012
+     ],
+     "content": "<table border=\"1\"><tr><td></td><td colspan=\"2\">Frühling\nMrz. - Mai</td><td colspan=\"2\">Sommer\nJun. - Aug.</td><td colspan=\"2\">Herbst\nSep. - Nov.</td><td colspan=\"2\">Winter\nDez. - Feb.</td></tr><tr><td rowspan=\"2\">Netzebene der Entnahmestelle</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td></tr><tr><td>von</td><td>bis</td><td>von</td><td>bis</td><td>von</td><td>bis</td><td>von</td><td>bis</td></tr><tr><td rowspan=\"6\">Mittelspannung</td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td>7:15</td><td>7:30</td><td>7:15</td><td>7:45</td></tr><tr><td>7:45</td><td>8.00</td><td>8:30</td><td>9:30</td></tr><tr><td>8:15</td><td>8:45</td><td>11:30</td><td>11:45</td></tr><tr><td>9:00</td><td>9:45</td><td>12:15</td><td>12:30</td></tr><tr><td>12:45</td><td>13:30</td><td>14:30</td><td>15:45</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>16:45</td><td>17:00</td></tr><tr><td rowspan=\"3\">Umspannung auf\nNiederspannung</td><td>11:45</td><td>12:00</td><td>12:45</td><td>13:00</td><td></td><td></td><td></td><td></td></tr><tr><td>12:30</td><td>13:00</td><td>13:15</td><td>14:00</td><td></td><td></td><td></td><td></td></tr><tr><td>13:15</td><td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"3\">Niederspannung</td><td>11:45</td><td>13:15</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13:30</td><td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>14:15</td><td>14:45</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>",
+     "height": 2806,
+     "index": 6,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      89,
+      2070,
+      1892,
+      2219
+     ],
+     "content": "Die Hochlastzeitfenster sind ausschließlich an Werktagen gültig, Brückentage werden als Werktage betrachtet. Wochenenden, Feiertage sowie die Zeit zwischen Weihnachten und Neujahr gelten als Nebenzeiten/Schwachlastzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.",
+     "height": 2806,
+     "index": 7,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      308,
+      2264,
+      1674,
+      2361
+     ],
+     "content": "Zur Inanspruchnahme des Sonderentgelts müssen weiterführende Bedingungen erfüllt sein. Diese orientieren sich am Leitfaden der Bundesnetzagentur.",
+     "height": 2806,
+     "index": 8,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[73, 341, 632, 491])\n\n<div align=\"center\">\n\n# Individuelle Netzentgelten nach § 19 Abs. 2 S. 1 StromNEV\n\n</div>\n\nNetzkunden mit atypischen Verbrauchsverhalten können nach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung ein Sonderentgelt für die Netznutzung beantragen.\n\n## Hochlast-Zeitfenster gemäß Leitfaden BNetzA für: 2026\n\nReferenzzeitraum: September des Vor-Vorjahres bis August des Vorjahres\n\n<div align=\"center\">\n\nAuf Basis des Referenzzeitraums ergeben sich nach dem Leitfaden der Bundesnetzagentur zur Genehmigung individueller Netzentgeltvereinbarungen folgende Hochlastzeitfenster.\n\n</div>\n\n<table border=\"1\"><tr><td></td><td colspan=\"2\">Frühling\nMrz. - Mai</td><td colspan=\"2\">Sommer\nJun. - Aug.</td><td colspan=\"2\">Herbst\nSep. - Nov.</td><td colspan=\"2\">Winter\nDez. - Feb.</td></tr><tr><td rowspan=\"2\">Netzebene der Entnahmestelle</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td><td colspan=\"2\">Uhrzeit</td></tr><tr><td>von</td><td>bis</td><td>von</td><td>bis</td><td>von</td><td>bis</td><td>von</td><td>bis</td></tr><tr><td rowspan=\"6\">Mittelspannung</td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td rowspan=\"6\"></td><td>7:15</td><td>7:30</td><td>7:15</td><td>7:45</td></tr><tr><td>7:45</td><td>8.00</td><td>8:30</td><td>9:30</td></tr><tr><td>8:15</td><td>8:45</td><td>11:30</td><td>11:45</td></tr><tr><td>9:00</td><td>9:45</td><td>12:15</td><td>12:30</td></tr><tr><td>12:45</td><td>13:30</td><td>14:30</td><td>15:45</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>16:45</td><td>17:00</td></tr><tr><td rowspan=\"3\">Umspannung auf\nNiederspannung</td><td>11:45</td><td>12:00</td><td>12:45</td><td>13:00</td><td></td><td></td><td></td><td></td></tr><tr><td>12:30</td><td>13:00</td><td>13:15</td><td>14:00</td><td></td><td></td><td></td><td></td></tr><tr><td>13:15</td><td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan=\"3\">Niederspannung</td><td>11:45</td><td>13:15</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13:30</td><td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>14:15</td><td>14:45</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>\n\nDie Hochlastzeitfenster sind ausschließlich an Werktagen gültig, Brückentage werden als Werktage betrachtet. Wochenenden, Feiertage sowie die Zeit zwischen Weihnachten und Neujahr gelten als Nebenzeiten/Schwachlastzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.\n\nZur Inanspruchnahme des Sonderentgelts müssen weiterführende Bedingungen erfüllt sein. Diese orientieren sich am Leitfaden der Bundesnetzagentur.",
+  "model": "glm-ocr",
+  "request_id": "2026100402452986297aaf04f342bb",
+  "usage": {
+   "completion_tokens": 1145,
+   "prompt_tokens": 3255,
+   "total_tokens": 4400
+  }
+ },
+ "source": "live"
+}

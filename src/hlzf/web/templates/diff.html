@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Compare versions · HLZF provenance{% endblock %}
+{% block main %}
+<h1>Compare two publications</h1>
+<p class="lede">What changed between two years of a grid operator, or between an original and its
+  corrected re-publication. Changed cells are highlighted.</p>
+
+<form class="qform" action="/diff" method="get">
+  <label>Earlier
+    <select name="a">{% for d in docs %}<option value="{{ d.id }}" {% if d.id == a %}selected{% endif %}>{{ d.dso }} {{ d.year }}{% if d.version_label %} ({{ d.version_label}}){% endif %}</option>{% endfor %}</select>
+  </label>
+  <label>Later
+    <select name="b">{% for d in docs %}<option value="{{ d.id }}" {% if d.id == b %}selected{% endif %}>{{ d.dso }} {{ d.year }}{% if d.version_label %} ({{ d.version_label}}){% endif %}</option>{% endfor %}</select>
+  </label>
+  <button class="primary">Compare</button>
+</form>
+{% if pairs %}
+<p class="small muted" style="margin-top:.8rem">Available pairs:
+  {% for x, y in pairs %}<a href="/diff?a={{ x.id }}&b={{ y.id }}">{{ x.dso }} {{ x.year }}{% if x.version_label %} {{ x.version_label}}{% endif %} and {{ y.year }}{% if y.version_label %} {{ y.version_label}}{% endif %}</a>{% if not loop.last %}; {% endif %}{% endfor %}</p>
+{% endif %}
+
+{% if error %}<div class="flash">{{ error }}</div>{% endif %}
+{% if result %}
+<section>
+  <h2>{{ result.a.dso }}: {{ result.a.year }}{% if result.a.version %} ({{ result.a.version}}){% endif %}, then {{ result.b.year }}{% if result.b.version %} ({{ result.b.version}}){% endif %}</h2>
+  {% if result.b.correction_note %}<p>Correction note in the later document: {{ result.b.correction_note }}</p>{% endif %}
+  {% set changed = result.cells | rejectattr('change', 'equalto', 'unchanged') | list %}
+  <p class="muted">{{ changed|length }} of {{ result.cells|length }} cells changed{% if result.convention.before != result.convention.after %}; timestamp convention changed from {{ result.convention.before }} to {{ result.convention.after }}{% endif %}.</p>
+  {% set same = result.cells | selectattr('change', 'equalto', 'unchanged') | list %}
+  <table>
+    <thead><tr><th>Level</th><th>Season</th><th>Earlier</th><th>Later</th><th>Change</th></tr></thead>
+    <tbody>
+    {% for c in changed %}
+      <tr class="diffcell changed">
+        <td>{{ c.grid_level }}</td><td>{{ season_labels[c.season] }}</td>
+        <td class="{% if c.change == 'changed' %}before{% endif %}">{{ c.before }}</td>
+        <td>{{ c.after }}</td><td class="small">{{ c.change }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="5" class="muted">No cell changed.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% if same %}
+  <details style="margin-top:.8rem">
+    <summary class="small">Show the {{ same|length }} unchanged cells</summary>
+    <table>
+      <tbody>
+      {% for c in same %}
+        <tr class="diffcell"><td>{{ c.grid_level }}</td><td>{{ season_labels[c.season] }}</td><td colspan="2">{{ c.after }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </details>
+  {% endif %}
+  {% if result.rules %}
+  <h3 style="margin-top:1.4rem">Rule changes</h3>
+  <ul>{% for r in result.rules %}<li>{{ r.kind|replace('_', ' ') }}{% if r.grid_level %} ({{ r.grid_level }}){% endif %}: {{ r.before }} to {{ r.after }}</li>{% endfor %}</ul>
+  {% endif %}
+  <h3 style="margin-top:1.4rem">Earlier</h3>
+  {{ m.ribbon(result.ribbon_a, result.a.id, false) }}
+  <h3 style="margin-top:1.4rem">Later</h3>
+  {{ m.ribbon(result.ribbon_b, result.b.id, false) }}
+</section>
+{% endif %}
+{% endblock %}

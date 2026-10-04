@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Upload a PDF · HLZF provenance{% endblock %}
+{% block main %}
+<h1>Upload a DSO publication</h1>
+<p class="lede">An uploaded PDF goes through the same pipeline as the corpus: text and vision
+  extraction, every value grounded in a line of the PDF, resamples and an OCR swap where the
+  readings disagree, consensus correction, and a provenance record that names you as the uploader.</p>
+
+{% if not live %}
+<div class="notice" role="status"><strong>Offline mode.</strong> No <code>ZAI_API_KEY</code> is set, or
+  <code>HLZF_OFFLINE=1</code>. Files are stored and parsed, but the extraction needs the key: set it in
+  <code>.env</code>, restart <code>hlzf serve</code>, then retry the upload.</div>
+{% endif %}
+
+<form class="upload" method="post" action="/upload" enctype="multipart/form-data" id="upform">
+  <label class="drop" id="drop">
+    <input type="file" name="files" accept="application/pdf,.pdf" multiple required>
+    <span class="drop-title">Drop PDFs here, or choose files</span>
+    <span class="small muted">Up to {{ max_mb|int }} MB and {{ max_pages }} pages per file. Several files at once are fine.</span>
+    <span class="drop-files small" aria-live="polite"></span>
+  </label>
+
+  <details class="hints">
+    <summary>Optional: what you already know about the file</summary>
+    <p class="small muted">Leave empty to take the grid operator and year from the document (recommended).
+      A label that contradicts the document is reported as an issue, not trusted. Applies to every file in this upload.</p>
+    <div class="row">
+      <label>Grid operator <input name="dso" placeholder="Stadtwerke Musterstadt Netz GmbH" size="32"></label>
+      <label>Validity year <input name="year" inputmode="numeric" pattern="20[0-9]{2}" placeholder="2026" size="6"></label>
+      <label>Source URL <input name="url" type="url" placeholder="https://" size="32"></label>
+    </div>
+    <fieldset class="states">
+      <legend>Federal states of the grid area, for public holidays when the document does not name them</legend>
+      {% for code, name in states %}<label class="check"><input type="checkbox" name="states" value="{{ code }}"> {{ name }}</label>{% endfor %}
+    </fieldset>
+  </details>
+
+  <div class="row submitrow">
+    <label>Uploaded by <input name="uploaded_by" value="{{ reviewer }}" size="14"></label>
+    <button class="primary" type="submit">Upload and extract</button>
+    <span class="small muted">{% if estimate %}About ${{ '%.2f'|format(estimate) }} in model calls per document, the average of the live runs so far.{% else %}A few cents in model calls per document.{% endif %}</span>
+  </div>
+</form>
+
+{% if batch %}
+<section id="batch" aria-labelledby="batch-h">
+  <h2 id="batch-h">This upload</h2>
+  <div class="jobs">{% for j in batch %}{% include "_job.html" %}{% endfor %}</div>
+</section>
+{% endif %}
+
+<section aria-labelledby="up-docs">
+  <h2 id="up-docs">Uploaded publications</h2>
+  {% if docs %}{{ m.doctable(docs) }}{% else %}<p class="muted">Nothing uploaded yet.</p>{% endif %}
+</section>
+
+{% if history %}
+<section aria-labelledby="hist-h">
+  <h2 id="hist-h">Upload log</h2>
+  <div class="scroll-x"><table class="doctable uplog">
+    <thead><tr><th scope="col">When (UTC)</th><th scope="col">File</th><th scope="col" class="hide-s">By</th>
+      <th scope="col">Outcome</th><th scope="col" class="num hide-s">Model cost</th></tr></thead>
+    <tbody>
+    {% for j in history %}
+      <tr>
+        <td class="small">{{ j.created_at[:16].replace('T', ' ') }}</td>
+        <td>{{ j.filename }}</td>
+        <td class="small hide-s">{{ j.uploaded_by }}</td>
+        <td class="small">
+          {%- if j.status == 'done' %}<a href="/doc/{{ j.document_id }}">read</a>, {{ j.result.windows }} windows, {{ j.result.review }} to review
+          {%- elif j.status == 'duplicate' %}already known as <a href="/doc/{{ j.document_id }}">{{ j.document_id }}</a>
+          {%- elif j.status in ('queued', 'running') %}<a href="/uploads?jobs={{ j.jid }}#batch">in progress</a>
+          {%- else %}<span class="errtext">{{ j.status }}</span>: {{ (j.error or '')[:90] }}{% if j.status in ('failed', 'interrupted') %} <a href="/uploads?jobs={{ j.jid }}#batch">details</a>{% endif %}{% endif %}</td>
+        <td class="num small hide-s">{% if j.result.cost %}${{ '%.4f'|format(j.result.cost) }}{% else %}–{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</section>
+{% endif %}
+
+<script>
+(() => {
+  const drop = document.getElementById("drop");
+  const form = document.getElementById("upform");
+  if (!drop || !form) return;
+  const input = drop.querySelector("input[type=file]");
+  const out = drop.querySelector(".drop-files");
+  const show = () => {
+    const files = [...input.files];
+    out.textContent = files.map(f => `${f.name} (${Math.max(1, Math.round(f.size / 1024))} KB)`).join(" · ");
+    drop.classList.toggle("has-files", files.length > 0);
+  };
+  input.addEventListener("change", show);
+  ["dragenter", "dragover"].forEach(e => drop.addEventListener(e, () => drop.classList.add("over")));
+  ["dragleave", "drop"].forEach(e => drop.addEventListener(e, () => drop.classList.remove("over")));
+  form.addEventListener("submit", () => {
+    const b = form.querySelector("button[type=submit]");
+    b.disabled = true;
+    b.textContent = "Uploading…";
+  });
+})();
+</script>
+{% endblock %}

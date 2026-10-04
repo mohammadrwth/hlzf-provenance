@@ -1,0 +1,214 @@
+{
+ "created_at": "2026-10-03T18:43:42.636195+00:00",
+ "key": "3d0dc7eed58f9a993bdcea23b21578b4",
+ "model": "glm-ocr",
+ "page": 1,
+ "response": {
+  "created": 1791053022,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2806,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "202610040243419c34d6fdef83458b",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1312,
+      108,
+      1819,
+      280
+     ],
+     "height": 2806,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      364,
+      386,
+      1298,
+      492
+     ],
+     "content": "<div align=\"center\">\n\n# Hochlastzeitfenster 2025 für atypische Netznutzung gemäß § 19 Abs. 2 Satz 1 StromNEV\n\n</div>",
+     "height": 2806,
+     "index": 1,
+     "label": "text",
+     "native_label": "doc_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      169,
+      534,
+      1255,
+      653
+     ],
+     "content": "Gemäß BNetzA sind nur Werktage (Montag bis Freitag) als \"Hochlastzeiten\" berücksichtigt. Wochenenden, bundeseinheitliche Feiertage und die Tage zwischen Weihnachten und Neujahr befinden sich nicht im Gültigkeitsbereich der Hochlastfenster.",
+     "height": 2806,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      731,
+      1154,
+      768
+     ],
+     "content": "Hochlastzeiten der Stadtwerke Schweinfurt GmbH je Netzebene und Jahreszeit",
+     "height": 2806,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      169,
+      806,
+      1843,
+      1276
+     ],
+     "content": "<table border=\"1\"><tr><td></td><td>Umspannung HS/MS</td><td>Mittelspannung</td><td>Umspannung MS/NS</td><td>Niederspannung</td></tr><tr><td>Frühling</td><td></td><td></td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td>09:15-13:30</td><td></td><td>10:45-12:30</td></tr><tr><td>Winter</td><td>17:15-18:00</td><td>09:15-14:1516:15-17:15</td><td>10:30-12:1516:30-18:30</td><td>10:45-13:0016:30-18:30</td></tr></table>",
+     "height": 2806,
+     "index": 4,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      1432,
+      507,
+      1468
+     ],
+     "content": "## Jahreszeiten nach BNetzA:",
+     "height": 2806,
+     "index": 5,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      170,
+      1515,
+      643,
+      1549
+     ],
+     "content": "Frühling 1. März bis 31. Mai",
+     "height": 2806,
+     "index": 6,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      1554,
+      666,
+      1590
+     ],
+     "content": "Sommer 1. Juni bis 31. August",
+     "height": 2806,
+     "index": 7,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      1594,
+      796,
+      1630
+     ],
+     "content": "Herbst 1. September bis 30. November",
+     "height": 2806,
+     "index": 8,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      1632,
+      854,
+      1670
+     ],
+     "content": "Winter 1. Dezember bis 28. bzw 29. Februar",
+     "height": 2806,
+     "index": 9,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      1828,
+      1004,
+      1861
+     ],
+     "content": "Weitere Voraussetzungen (gem. Beschluss BK4-13-739, Stand 2013)",
+     "height": 2806,
+     "index": 10,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      169,
+      1864,
+      1121,
+      2064
+     ],
+     "content": "<table><thead><tr><th>Netzebene</th><th>Erheblichkeitsschwelle</th><th>Bagatellgrenze</th></tr></thead><tbody><tr><td>HS/MS</td><td>20%</td><td>500 €</td></tr><tr><td>MS</td><td>20%</td><td>500 €</td></tr><tr><td>MS/NS</td><td>30%</td><td>500 €</td></tr><tr><td>NS</td><td>30%</td><td>500 €</td></tr></tbody></table>",
+     "height": 2806,
+     "index": 11,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      171,
+      2104,
+      1012,
+      2140
+     ],
+     "content": "Mindestverlagerung von 100 kW in allen Netz- und Umspannenbenen.",
+     "height": 2806,
+     "index": 12,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1312, 108, 1819, 280])\n\n<div align=\"center\">\n\n# Hochlastzeitfenster 2025 für atypische Netznutzung gemäß § 19 Abs. 2 Satz 1 StromNEV\n\n</div>\n\nGemäß BNetzA sind nur Werktage (Montag bis Freitag) als \"Hochlastzeiten\" berücksichtigt. Wochenenden, bundeseinheitliche Feiertage und die Tage zwischen Weihnachten und Neujahr befinden sich nicht im Gültigkeitsbereich der Hochlastfenster.\n\nHochlastzeiten der Stadtwerke Schweinfurt GmbH je Netzebene und Jahreszeit\n\n<table border=\"1\"><tr><td></td><td>Umspannung HS/MS</td><td>Mittelspannung</td><td>Umspannung MS/NS</td><td>Niederspannung</td></tr><tr><td>Frühling</td><td></td><td></td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td>09:15-13:30</td><td></td><td>10:45-12:30</td></tr><tr><td>Winter</td><td>17:15-18:00</td><td>09:15-14:1516:15-17:15</td><td>10:30-12:1516:30-18:30</td><td>10:45-13:0016:30-18:30</td></tr></table>\n\n## Jahreszeiten nach BNetzA:\n\nFrühling 1. März bis 31. Mai\n\nSommer 1. Juni bis 31. August\n\nHerbst 1. September bis 30. November\n\nWinter 1. Dezember bis 28. bzw 29. Februar\n\nWeitere Voraussetzungen (gem. Beschluss BK4-13-739, Stand 2013)\n\n<table><thead><tr><th>Netzebene</th><th>Erheblichkeitsschwelle</th><th>Bagatellgrenze</th></tr></thead><tbody><tr><td>HS/MS</td><td>20%</td><td>500 €</td></tr><tr><td>MS</td><td>20%</td><td>500 €</td></tr><tr><td>MS/NS</td><td>30%</td><td>500 €</td></tr><tr><td>NS</td><td>30%</td><td>500 €</td></tr></tbody></table>\n\nMindestverlagerung von 100 kW in allen Netz- und Umspannenbenen.",
+  "model": "glm-ocr",
+  "request_id": "202610040243419c34d6fdef83458b",
+  "usage": {
+   "completion_tokens": 693,
+   "prompt_tokens": 1894,
+   "total_tokens": 2587
+  }
+ },
+ "source": "live"
+}

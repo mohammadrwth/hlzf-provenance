@@ -1,0 +1,125 @@
+# HLZF source registry. Every URL below was found on the DSO's site or via web search on
+# 2026-10-03; none is constructed. `hlzf fetch` downloads them to data/raw/ (gitignored) and
+# records sha256 + HTTP validators in corpus.lock.json for change detection.
+#
+# states: German state codes of the DSO's network area (holiday calendar fallback when the
+# document itself is silent). notes: what to look for; verified against the PDF text unless
+# marked "unverified".
+#
+# Not found (download manually and use `hlzf import <id> <file.pdf>` after adding an entry):
+#   - SWM Infrastruktur (Munich), LEW Verteilnetz (Augsburg), swa Netze (Augsburg):
+#     no HLZF PDF surfaced in search on 2026-10-03.
+#   - Bayernwerk Netz 2026: only 2013 and 2022 publications surfaced; 2022 is listed below.
+#   - Original (uncorrected) Stadtwerke Bayreuth 2026 version: not located; check
+#     https://web.archive.org/web/*/stadtwerke-bayreuth.de/*hochlastzeitfenster-2026*
+
+documents:
+  # --- seed corpus --------------------------------------------------------------------
+  - id: n-ergie-2026
+    dso: N-ERGIE Netz GmbH
+    year: 2026
+    url: https://www.n-ergie-netz.de/public/remotemedien/media/nng/infothek_3/veroeffentlichungen_1/weitere_veroeffentlichungen/N_Hochlastzeitfenster_2026_NNG.pdf
+    states: [BY, BW]
+    notes: >-
+      Dated 31.10.2025. Up to three windows per cell, several 15-minute windows. Network spans
+      Bavaria and Baden-Württemberg: only holidays valid in the whole area count, explicitly
+      not Mariä Himmelfahrt; bridge days count as working days; 24.12.-01.01. off-peak.
+  - id: n-ergie-2024
+    dso: N-ERGIE Netz GmbH
+    year: 2024
+    url: https://www.n-ergie-netz.de/public/remotemedien/media/nng/infothek_3/veroeffentlichungen_1/weitere_veroeffentlichungen/N_Hochlastzeitfenster_2024.pdf
+    states: [BY, BW]
+    notes: Dated 13.10.2023. Year-over-year pair with n-ergie-2026.
+  - id: bayreuth-2026-korr
+    dso: Stadtwerke Bayreuth
+    year: 2026
+    version_label: corrected version (16.12.2025)
+    url: https://www.stadtwerke-bayreuth.de/fileadmin/user_upload/netz/Netzentgelte___Preise/strom-hochlastzeitfenster-2026-2.pdf
+    states: [BY]
+    notes: >-
+      Corrected re-publication: winter window for Mittelspannung (NE5) changed; the document
+      marks the new time but does not print the old one. Meter convention stated as interval
+      end ("Zeitstempel 09:15 definiert 09:00 bis 09:15") without a window example. "maximal ein
+      Brückentag" off-peak.
+  - id: ratingen-2026
+    dso: Stadtwerke Ratingen Netze
+    year: 2026
+    url: https://netze.stadtwerke-ratingen.de/fileadmin/Netze/Dokumente/HLZF_2026.pdf
+    states: [NW]
+    notes: >-
+      Dated 31.10.2025. Says times are quarter-hour ENDS, then gives the worked example
+      08:00-11:30 = meter timestamps 08:15-11:30, i.e. the window is the physical span.
+  - id: ratingen-2024
+    dso: Stadtwerke Ratingen Netze
+    year: 2024
+    url: https://netze.stadtwerke-ratingen.de/fileadmin/Netze/Dokumente/HLZF_2024.pdf
+    states: [NW]
+    notes: Year-over-year pair with ratingen-2026.
+  - id: wunsiedel-2024
+    dso: SWW Wunsiedel GmbH
+    year: 2024
+    url: https://www.gipsprojekt.de/featureGips/SWWWunsiedel/EnWGTool/Stromnetz/Netzzugang__Entgelte/Hochlastzeitfenster/HLZF-SWW-2024-20231120-extern-002.pdf
+    states: [BY]
+    notes: >-
+      Grid levels as "NETZEBENE 5/6/7". Bridge days count as working days.
+  - id: wunsiedel-2022
+    dso: SWW Wunsiedel GmbH
+    year: 2022
+    url: https://www.gipsprojekt.de/featureGips/SWWWunsiedel/EnWGTool/Stromnetz/Netzzugang__Entgelte/Hochlastzeitfenster/Hochlastfenster-2022.pdf
+    states: [BY]
+    notes: Year-over-year pair with wunsiedel-2024.
+  - id: enercity-2022
+    dso: enercity Netz GmbH
+    year: 2022
+    url: https://www.enercity-netz.de/assets/cms/eng/partner/dokumente-partner-allgemein/Hochlastzeitfenster-2022.pdf
+    states: [NI]
+    notes: Unverified (not read yet).
+
+  # --- Bavarian additions (found via search, 2026-10-03) ----------------------------------
+  - id: passau-2026
+    dso: Stadtwerke Passau GmbH
+    year: 2026
+    url: https://netze.stadtwerke-passau.de/files/dateien/netze/daten/strom/Netzzugang/Hochlastzeitfenster/Hochlastzeitfenster_2026.pdf
+    states: [BY]
+    notes: >-
+      Dated 28.10.2025. NE5-NE7. Says times are the END of a quarter-hour period, with no
+      worked example: the same sentence as Ratingen without Ratingen's example, so the first
+      quarter-hour of each window is ambiguous. "maximal ein Brückentag".
+  - id: passau-2024
+    dso: Stadtwerke Passau GmbH
+    year: 2024
+    url: https://netze.stadtwerke-passau.de/files/dateien/netze/daten/strom/Netzzugang/Hochlastzeitfenster/Hochlastzeitfenster_2024.pdf
+    states: [BY]
+    notes: Year-over-year pair with passau-2026. Unverified.
+  - id: schweinfurt-2026
+    dso: Stadtwerke Schweinfurt GmbH
+    year: 2026
+    url: https://www.stadtwerke-sw.de/_Resources/Persistent/7/9/d/b/79dbc831c07dec3fa0808639ad2d1059f2e83e8a/Hochlastzeitfenster%202026.pdf
+    states: [BY]
+    notes: >-
+      HS/MS to NS. Off-peak: weekends, "bundeseinheitliche Feiertage" (nationwide holidays
+      only, so no Bavarian-only holidays) and the days between Christmas and New Year.
+  - id: schweinfurt-2025
+    dso: Stadtwerke Schweinfurt GmbH
+    year: 2025
+    url: https://www.stadtwerke-sw.de/_Resources/Persistent/0/c/2/6/0c26501c62d315e2980c34040b206880ca659e33/Hochlastzeitfenster%202025.pdf
+    states: [BY]
+    notes: Year-over-year pair with schweinfurt-2026. Unverified.
+  - id: dettelbach-2026
+    dso: Stadtwerke Dettelbach
+    year: 2026
+    url: https://dettelbach-stadtwerke.de/wp-content/uploads/2025/10/2025-10-06_Hochlastzeitfenster-2026.pdf
+    states: [BY]
+    notes: Unverified; operator name taken from the domain.
+  - id: waldmuenchen-2026
+    dso: Stadtwerke Waldmünchen
+    year: 2026
+    url: https://stadtwerke-waldmuenchen.de/wp-content/uploads/2025/10/Hochlastzeitfenster_Par19NEV-2026.pdf
+    states: [BY]
+    notes: Unverified; operator name taken from the domain.
+  - id: bayernwerk-2022
+    dso: Bayernwerk Netz GmbH
+    year: 2022
+    url: https://mir.bayernwerk-netz.de/content/dam/revu-global/bayernwerk-netz/files/netz/netzzugang/individuelle-netzentgelte/20211101-bayernwerk-hochlastzeitfenster-2022.pdf
+    states: [BY]
+    notes: Newest publication found by search is for 2022. Unverified.

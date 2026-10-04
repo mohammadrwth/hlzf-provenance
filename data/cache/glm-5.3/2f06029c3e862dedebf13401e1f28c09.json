@@ -1,0 +1,20 @@
+{
+ "cost_usd": 0.005984,
+ "created_at": "2026-10-03T19:45:29+00:00",
+ "input_sha256": "afa52375cff779ef54d4701219769cb2abbd4bd9570f3a9e553b155e75f511df",
+ "key": "2f06029c3e862dedebf13401e1f28c09",
+ "latency_ms": 11009,
+ "model": "glm-5.3",
+ "prompt_hash": "ca4609cde3f3336e",
+ "prompt_version": "extract-v3",
+ "purpose": "extract:text",
+ "repaired": false,
+ "response_text": "{\"dso_name\":{\"value\":\"Stadtwerke Waldmünchen\",\"page\":1,\"quote\":\"Stadtwerke        Waldmünchen\"},\"validity_year\":{\"value\":2026,\"page\":1,\"quote\":\"Hochlast-Zeitfenster       gemäß    Leitfaden    BNetzA    für:        2026\"},\"publication_date\":null,\"version_label\":null,\"correction_note\":null,\"convention\":{\"meter_label\":\"unstated\",\"page\":null,\"quote\":null,\"worked_example\":null},\"levels_listed\":[{\"label\":\"Mittelspannung\",\"page\":1,\"quote\":\"Mittelspannung\"},{\"label\":\"Umspg. MS/NS\",\"page\":1,\"quote\":\"Umspg.   MS/NS\"},{\"label\":\"Niederspannung\",\"page\":1,\"quote\":\"Niederspannung\"}],\"windows\":[{\"level_label\":\"Mittelspannung\",\"season_label\":\"Winter\",\"start\":\"07:15\",\"end\":\"12:30\",\"page\":1,\"quote\":\"07:15 - 12:30\",\"quote_end\":null,\"level_quote\":\"Mittelspannung\",\"season_quote\":\"Winter\"},{\"level_label\":\"Umspg. MS/NS\",\"season_label\":\"Winter\",\"start\":\"10:45\",\"end\":\"13:30\",\"page\":1,\"quote\":\"10:45 - 13:30\",\"quote_end\":null,\"level_quote\":\"Umspg.   MS/NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"Niederspannung\",\"season_label\":\"Frühling\",\"start\":\"11:00\",\"end\":\"12:30\",\"page\":1,\"quote\":\"11:00 - 12:30\",\"quote_end\":null,\"level_quote\":\"Niederspannung\",\"season_quote\":\"Frühling\"},{\"level_label\":\"Niederspannung\",\"season_label\":\"Sommer\",\"start\":\"11:00\",\"end\":\"13:30\",\"page\":1,\"quote\":\"11:00 - 13:30\",\"quote_end\":null,\"level_quote\":\"Niederspannung\",\"season_quote\":\"Sommer\"},{\"level_label\":\"Niederspannung\",\"season_label\":\"Herbst\",\"start\":\"11:00\",\"end\":\"13:00\",\"page\":1,\"quote\":\"11:00 - 13:00\",\"quote_end\":null,\"level_quote\":\"Niederspannung\",\"season_quote\":\"Herbst\"},{\"level_label\":\"Niederspannung\",\"season_label\":\"Winter\",\"start\":\"11:00\",\"end\":\"13:30\",\"page\":1,\"quote\":\"11:00 - 13:30\",\"quote_end\":null,\"level_quote\":\"Niederspannung\",\"season_quote\":\"Winter\"}],\"empty_cells\":[{\"level_label\":\"Mittelspannung\",\"season_label\":\"Frühling\",\"page\":1},{\"level_label\":\"Mittelspannung\",\"season_label\":\"Sommer\",\"page\":1},{\"level_label\":\"Mittelspannung\",\"season_label\":\"Herbst\",\"page\":1},{\"level_label\":\"Umspg. MS/NS\",\"season_label\":\"Frühling\",\"page\":1},{\"level_label\":\"Umspg. MS/NS\",\"season_label\":\"Sommer\",\"page\":1},{\"level_label\":\"Umspg. MS/NS\",\"season_label\":\"Herbst\",\"page\":1}],\"rules\":[],\"anomalies\":[\"The document names a reference period ('Referenzzeitraum: September des Vor-Vorjahres bis August des Vorjahres') and cites BNetzA guideline versions (Stand Sept. 2011 for the windows, Stand Dezember 2012 for further conditions), but states no further rules (workdays, holidays, bridge days, etc.) and no publication date.\",\"Page 2 notes that pre-entered times are only an example to be replaced by customer-specific HLZF from the 'LastDaten' spreadsheet.\"]}",
+ "sample": 0,
+ "source": "live",
+ "usage": {
+  "cached_tokens": 1536,
+  "input_tokens": 2118,
+  "output_tokens": 1084
+ }
+}

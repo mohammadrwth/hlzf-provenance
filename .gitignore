@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Third-party PDFs and everything derived locally. The response cache is committed.
+data/raw/
+data/uploads/
+data/pages/
+data/synthetic/
+data/exports/
+data/hlzf.db
+data/hlzf.db-*

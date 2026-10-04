@@ -1,0 +1,20 @@
+{
+ "cost_usd": 0.008687,
+ "created_at": "2026-10-03T19:42:52+00:00",
+ "input_sha256": "7bf8e0b0c9c694bcb93724725e6641e673e3f77690a5201b043376eec0af7bb8",
+ "key": "9b3bfc8953dc0757dbf2c6a7afcf3860",
+ "latency_ms": 14907,
+ "model": "glm-5.3",
+ "prompt_hash": "ca4609cde3f3336e",
+ "prompt_version": "extract-v3",
+ "purpose": "extract:ocr",
+ "repaired": false,
+ "response_text": "{\"dso_name\":{\"value\":\"Stadtwerke Ratingen\",\"page\":2,\"quote\":\"netznutzung@stadtwerke-ratingen.de\"},\"validity_year\":{\"value\":2024,\"page\":2,\"quote\":\"Hochlastzeitfenster 2024\"},\"publication_date\":null,\"version_label\":null,\"correction_note\":null,\"convention\":{\"meter_label\":\"end\",\"page\":1,\"quote\":\"Bei den Zeiten ist jeweils das Ende des 1/4-Stunden-Intervalls angegeben\",\"worked_example\":{\"listed_start\":\"08:00\",\"first_timestamp\":\"08:15\"}},\"levels_listed\":[{\"label\":\"MS\",\"page\":2,\"quote\":\"MS\"},{\"label\":\"MS/NS\",\"page\":2,\"quote\":\"MS/NS\"},{\"label\":\"NS\",\"page\":2,\"quote\":\"NS\"}],\"windows\":[{\"level_label\":\"MS\",\"season_label\":\"Frühling\",\"start\":\"12:00\",\"end\":\"14:45\",\"page\":2,\"quote\":\"12:00\",\"quote_end\":\"14:45\",\"level_quote\":\"MS\",\"season_quote\":\"Frühling\"},{\"level_label\":\"MS\",\"season_label\":\"Winter\",\"start\":\"12:15\",\"end\":\"16:15\",\"page\":2,\"quote\":\"12:15\",\"quote_end\":\"16:15\",\"level_quote\":\"MS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS\",\"season_label\":\"Winter\",\"start\":\"17:15\",\"end\":\"18:15\",\"page\":2,\"quote\":\"17:15\",\"quote_end\":\"18:15\",\"level_quote\":\"MS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS/NS\",\"season_label\":\"Winter\",\"start\":\"12:45\",\"end\":\"13:00\",\"page\":2,\"quote\":\"12:45\",\"quote_end\":\"13:00\",\"level_quote\":\"MS/NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS/NS\",\"season_label\":\"Winter\",\"start\":\"15:45\",\"end\":\"19:15\",\"page\":2,\"quote\":\"15:45\",\"quote_end\":\"19:15\",\"level_quote\":\"MS/NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"NS\",\"season_label\":\"Winter\",\"start\":\"12:45\",\"end\":\"13:30\",\"page\":2,\"quote\":\"12:45\",\"quote_end\":\"13:30\",\"level_quote\":\"NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"NS\",\"season_label\":\"Winter\",\"start\":\"15:45\",\"end\":\"19:15\",\"page\":2,\"quote\":\"15:45\",\"quote_end\":\"19:15\",\"level_quote\":\"NS\",\"season_quote\":\"Winter\"}],\"empty_cells\":[{\"level_label\":\"MS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"MS\",\"season_label\":\"Herbst\",\"page\":2},{\"level_label\":\"MS/NS\",\"season_label\":\"Frühling\",\"page\":2},{\"level_label\":\"MS/NS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"MS/NS\",\"season_label\":\"Herbst\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Frühling\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Herbst\",\"page\":2}],\"rules\":[{\"kind\":\"workdays_only\",\"value\":true,\"level_label\":null,\"page\":1,\"quote\":\"Die Hochlastzeitfenster werden ausschließlich für Werkage ermittelt.\"},{\"kind\":\"bridge_days\",\"value\":\"off_peak_max_one\",\"level_label\":null,\"page\":1,\"quote\":\"maximal ein Brückentag\"},{\"kind\":\"christmas_period\",\"value\":{\"from\":null,\"to\":null},\"level_label\":null,\"page\":1,\"quote\":\"die Zeit zwischen Weihnachten und Neujahr sind Schwachlastzeiten\"}],\"anomalies\":[\"The operator name is not printed as a heading; it is only inferable from the contact email 'netznutzung@stadtwerke-ratingen.de'.\",\"The document mentions 'Feiertage' as off-peak days but names no states or specific holidays, so no holiday_handling rule could be formed.\",\"Data basis 'September 2022 bis zum August 2023' is given, which is not the validity year 2024.\"]}",
+ "sample": 0,
+ "source": "live",
+ "usage": {
+  "cached_tokens": 1536,
+  "input_tokens": 2726,
+  "output_tokens": 1505
+ }
+}

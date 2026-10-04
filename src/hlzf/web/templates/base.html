@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}HLZF provenance{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/htmx.min.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">HLZF provenance <span>{{ version }}</span></a>
+    <nav aria-label="Main">
+      <a href="/" {% if nav == 'documents' %}aria-current="page"{% endif %}>Documents</a>
+      <a href="/query" {% if nav == 'query' %}aria-current="page"{% endif %}>Check a quarter-hour</a>
+      <a href="/diff" {% if nav == 'diff' %}aria-current="page"{% endif %}>Compare versions</a>
+      <a href="/uploads" {% if nav == 'uploads' %}aria-current="page"{% endif %}>Upload a PDF</a>
+    </nav>
+    <span class="who">Reviewing as {{ reviewer }}</span>
+  </header>
+  <main>
+    {% if request.query_params.get('error') %}
+      <div class="flash" role="alert">{{ request.query_params.get('error') }}</div>
+    {% endif %}
+    {% block main %}{% endblock %}
+  </main>
+</body>
+</html>

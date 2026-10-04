@@ -1,0 +1,102 @@
+{
+ "created_at": "2026-10-03T18:39:03.090840+00:00",
+ "key": "521b67a1e8c90e9a6ea8d94070bb7c1a",
+ "model": "glm-ocr",
+ "page": 2,
+ "response": {
+  "created": 1791052743,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2806,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "20261004023901d2c8909f67974e2d",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1328,
+      121,
+      1794,
+      273
+     ],
+     "height": 2806,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      179,
+      352,
+      659,
+      393
+     ],
+     "content": "## Information zur Beantragung:",
+     "height": 2806,
+     "index": 1,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      398,
+      1781,
+      521
+     ],
+     "content": "Für die Antragstellung ist der Abschluss einer entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH notwendig. Für deren Ausarbeitung senden wir Ihnen gerne weitere Informationen und einen elektronischen Erfassungsbogen zur Aufnahme der nötigen Daten zu.",
+     "height": 2806,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      550,
+      1111,
+      594
+     ],
+     "content": "Ihre Anfrage richten Sie bitte an: netzzugang@n-ergie-netz.de",
+     "height": 2806,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      624,
+      1702,
+      751
+     ],
+     "content": "Nach Abschluss der entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH ist die Anzeige der abgeschlossenen Vereinbarung durch den Letztverbraucher bei der BNetzA bis spätestens 30.09. des Kalenderjahres, für das das individuelle Netzentgelt erstmals beantragt wird, erforderlich.",
+     "height": 2806,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1328, 121, 1794, 273])\n\n## Information zur Beantragung:\n\nFür die Antragstellung ist der Abschluss einer entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH notwendig. Für deren Ausarbeitung senden wir Ihnen gerne weitere Informationen und einen elektronischen Erfassungsbogen zur Aufnahme der nötigen Daten zu.\n\nIhre Anfrage richten Sie bitte an: netzzugang@n-ergie-netz.de\n\nNach Abschluss der entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH ist die Anzeige der abgeschlossenen Vereinbarung durch den Letztverbraucher bei der BNetzA bis spätestens 30.09. des Kalenderjahres, für das das individuelle Netzentgelt erstmals beantragt wird, erforderlich.",
+  "model": "glm-ocr",
+  "request_id": "20261004023901d2c8909f67974e2d",
+  "usage": {
+   "completion_tokens": 182,
+   "prompt_tokens": 629,
+   "total_tokens": 811
+  }
+ },
+ "source": "live"
+}

@@ -1,0 +1,130 @@
+{
+ "created_at": "2026-10-03T16:25:06.590257+00:00",
+ "key": "d32b14243ed1c55f86c0b096a052855d",
+ "model": "glm-ocr",
+ "page": 2,
+ "response": {
+  "created": 1791044706,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2806,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "20261004002505ca043775813b44a1",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1419,
+      161,
+      1885,
+      313
+     ],
+     "height": 2806,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      179,
+      361,
+      1195,
+      403
+     ],
+     "content": "Weitere Hinweise erhalten Sie auf den Seiten der BNetzA unter:",
+     "height": 2806,
+     "index": 1,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      182,
+      409,
+      866,
+      450
+     ],
+     "content": "Bundesnetzagentur - Ind. Netzentgelte Strom",
+     "height": 2806,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      179,
+      499,
+      659,
+      540
+     ],
+     "content": "## Information zur Beantragung:",
+     "height": 2806,
+     "index": 3,
+     "label": "text",
+     "native_label": "paragraph_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      544,
+      1782,
+      669
+     ],
+     "content": "Für die Antragstellung ist der Abschluss einer entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH notwendig. Für deren Ausarbeitung senden wir Ihnen gerne weitere Informationen und einen elektronischen Erfassungsbogen zur Aufnahme der nötigen Daten zu.",
+     "height": 2806,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      698,
+      1109,
+      742
+     ],
+     "content": "Ihre Anfrage richten Sie bitte an: netzzugang@n-ergie-netz.de",
+     "height": 2806,
+     "index": 5,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      772,
+      1703,
+      898
+     ],
+     "content": "Nach Abschluss der entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH ist die Anzeige der abgeschlossenen Vereinbarung durch den Letztverbrauch bei der BNetzA bis spätestens 30.09. des Kalenderjahres, für das das individuelle Netzentgelt erstmals beantragt wird, erforderlich.",
+     "height": 2806,
+     "index": 6,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1419, 161, 1885, 313])\n\nWeitere Hinweise erhalten Sie auf den Seiten der BNetzA unter:\n\nBundesnetzagentur - Ind. Netzentgelte Strom\n\n## Information zur Beantragung:\n\nFür die Antragstellung ist der Abschluss einer entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH notwendig. Für deren Ausarbeitung senden wir Ihnen gerne weitere Informationen und einen elektronischen Erfassungsbogen zur Aufnahme der nötigen Daten zu.\n\nIhre Anfrage richten Sie bitte an: netzzugang@n-ergie-netz.de\n\nNach Abschluss der entsprechenden Vereinbarung mit der N-ERGIE Netz GmbH ist die Anzeige der abgeschlossenen Vereinbarung durch den Letztverbrauch bei der BNetzA bis spätestens 30.09. des Kalenderjahres, für das das individuelle Netzentgelt erstmals beantragt wird, erforderlich.",
+  "model": "glm-ocr",
+  "request_id": "20261004002505ca043775813b44a1",
+  "usage": {
+   "completion_tokens": 216,
+   "prompt_tokens": 695,
+   "total_tokens": 911
+  }
+ },
+ "source": "live"
+}

@@ -1,0 +1,61 @@
+{% import "_macros.html" as m %}
+{% if error %}
+  <div class="flash" role="alert">{{ error }}</div>
+{% elif result %}
+{% set r = result %}
+<div class="answer">
+  {% if r.in_hlzf is sameas true %}<div class="big yes">In HLZF</div>
+  {% elif r.in_hlzf is sameas false %}<div class="big no">Not in HLZF</div>
+  {% elif r.in_hlzf == 'uncertain' %}<div class="big maybe">Uncertain</div>
+  {% else %}<div class="big">No answer</div>{% endif %}
+  <div><strong>{{ r.dso }}</strong>, {{ r.grid_level }}, {{ r.day_ribbon.date }}</div>
+  <div class="muted">Quarter-hour {{ r.interval_local[0][11:16] }}–{{ r.interval_local[1][11:16] }} local
+    ({{ r.interval_utc[0][11:16] }}–{{ r.interval_utc[1][11:16] }} UTC), {{ season_labels[r.season] }}; {{ r.day_reason }}.</div>
+</div>
+
+{% if r.day_ribbon.season %}
+<div class="ribbon day">
+  <div></div>{{ m.axis() }}
+  <div class="season">{{ season_labels[r.season] }}</div>
+  <div class="track">
+    {% for b in r.day_ribbon.season.bars %}
+      {% if b.boundary %}<span class="boundary" style="left:{{ b.left - b.boundary }}%;width:{{ b.boundary }}%"></span>{% endif %}
+      <span class="bar {{ b.status }}{% if b.selected %} selected{% endif %}" style="left:{{ b.left }}%;width:{{ b.width }}%" title="{{ b.label }}"></span>
+    {% endfor %}
+    <span class="marker" style="left:{{ r.day_ribbon.marker_left }}%;width:{{ r.day_ribbon.marker_width }}%" title="Queried quarter-hour"></span>
+  </div>
+</div>
+<p class="small muted" style="margin-top:.4rem">The outlined box is the queried quarter-hour on this level's {{ season_labels[r.season]|lower }} windows.</p>
+{% endif %}
+
+<div class="workspace" style="margin-top:1.2rem">
+  <div>
+    <div class="panel">
+      <h2>Why</h2>
+      {% if r.matching_window %}
+      <p>Window <strong>{{ r.matching_window.start }}–{{ r.matching_window.end }}</strong>
+        (<span class="status {{ r.matching_window.status }}">{{ status_labels.get(r.matching_window.status, r.matching_window.status) }}</span>),
+        printed on page {{ r.matching_window.page }} as <span class="quote">{{ r.matching_window.quote }}</span>.
+        <a href="/doc/{{ r.document }}?w={{ r.matching_window.window_id }}#review">Open in document</a></p>
+      {% else %}
+      <p>No window of this level and season covers this quarter-hour.
+        <a href="/doc/{{ r.document }}">Open document</a></p>
+      {% endif %}
+      <p class="small">Convention: {{ r.convention|replace('_', ' ') }}; timestamp read as the quarter-hour's {{ r.ts_label }}.</p>
+      {% if r.notes %}<ul class="small">{% for n in r.notes %}<li>{{ n }}</li>{% endfor %}</ul>{% endif %}
+      {% if r.rules_applied %}
+      <h3>Rules from the document</h3>
+      <ul class="small">
+        {% for rule in r.rules_applied %}<li>{{ rule.kind|replace('_', ' ') }}: <span class="quote">{{ rule.quote }}</span></li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  <div>
+    <div class="panel">
+      <h2>Provenance</h2>
+      {{ m.chain(r.provenance) }}
+    </div>
+  </div>
+</div>
+{% endif %}

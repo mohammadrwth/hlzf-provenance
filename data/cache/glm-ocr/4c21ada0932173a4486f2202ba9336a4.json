@@ -1,0 +1,200 @@
+{
+ "created_at": "2026-10-03T18:39:01.044302+00:00",
+ "key": "4c21ada0932173a4486f2202ba9336a4",
+ "model": "glm-ocr",
+ "page": 1,
+ "response": {
+  "created": 1791052740,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2806,
+     "width": 1984
+    }
+   ]
+  },
+  "id": "20261004023858fb8f2760b8e94017",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1326,
+      121,
+      1792,
+      273
+     ],
+     "height": 2806,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      324,
+      1501,
+      454
+     ],
+     "content": "<div align=\"center\">\n\n# Hochlastzeitfenster für atypische Netznutzung nach § 19 Abs. 2 Satz 1 StromNEV - 2024\n\n</div>",
+     "height": 2806,
+     "index": 1,
+     "label": "text",
+     "native_label": "doc_title",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      508,
+      1836,
+      592
+     ],
+     "content": "Nach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung (StromNEV) können Letztverbraucher mit atypischem Verbrauchsverhalten unter bestimmten Bedingungen ein individuelles Netzentgelt für die Netznutzung erhalten.",
+     "height": 2806,
+     "index": 2,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      177,
+      621,
+      1694,
+      705
+     ],
+     "content": "Atypisches Verbrauchsverhalten liegt vor, wenn die Zeitpunkte des maximalen Leistungsbezugs eines Letztverbrauchers außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster liegen.",
+     "height": 2806,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      734,
+      1756,
+      819
+     ],
+     "content": "Nach Festlegung der Bundesnetzagentur (BNetzA) BK4-13-739 vom 11. Dezember 2013 veröffentlicht die N-ERGIE Netz GmbH für das Jahr 2024 folgende Hochlastzeitfenster:",
+     "height": 2806,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      189,
+      847,
+      1829,
+      1569
+     ],
+     "content": "<table border=\"1\"><tr><td>Entnahmenetzebene</td><td>Winter Januar, Februar und Dezember</td><td>Frühling März bis Mai</td><td>Sommer Juni bis August.</td><td>Herbst September bis November</td></tr><tr><td>Hochspannung HS</td><td>08:45-09:30 Uhr\n09:45-10:00 Uhr\n12:30-19:15 Uhr</td><td></td><td></td><td></td></tr><tr><td>Umspannung in Mittelspannung HS/MS</td><td>08:45-10:00 Uhr\n11:15-11:30 Uhr\n12:30-19:15 Uhr</td><td></td><td></td><td></td></tr><tr><td>Mittelspannung MS</td><td>08:00-09:15 Uhr\n09:30-15:45 Uhr\n16:00-18:30 Uhr</td><td></td><td></td><td>17:15-17:30 Uhr</td></tr><tr><td>Umspannung in Niederspannung MS/NS</td><td>16:45-19:30 Uhr</td><td></td><td></td><td></td></tr><tr><td>Niederspannung NS</td><td>10:15-10:30 Uhr\n10:45-13:30 Uhr\n16:45-19:30 Uhr</td><td>13:45-14:00 Uhr</td><td></td><td></td></tr></table>",
+     "height": 2806,
+     "index": 5,
+     "label": "table",
+     "native_label": "table",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      1627,
+      1861,
+      1789
+     ],
+     "content": "Die Hochlastzeitfenster sind ausschließlich an Werktagen gültig. Brückentage werden als Werktage betrachtet. Wochenenden, gesetzliche Feiertage, die im gesamten Netzgebiet (Bayern und Baden-Württemberg) gleichzeitig gelten (nicht Maria Himmelfahrt), sowie die Zeit vom 24.12. bis einschließlich zum 01.01. gelten als Nebenzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.",
+     "height": 2806,
+     "index": 6,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      1855,
+      1853,
+      1939
+     ],
+     "content": "Zur Inanspruchnahme des individuellen Netzentgelts nach § 19 Abs. 2 Satz 1 StromNEV müssen weiterführende Bedingungen der oben genannten BNetzA-Festlegung erfüllt sein. Insbesondere sind das:",
+     "height": 2806,
+     "index": 7,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      179,
+      1968,
+      1572,
+      2010
+     ],
+     "content": "- die Bagatellgrenze, die jährliche Entgeltreduzierung muss mindestens 500,00 € betragen,",
+     "height": 2806,
+     "index": 8,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      2012,
+      1863,
+      2126
+     ],
+     "content": "- der maximale Energiebezug (Maximallast) des Netzkunden innerhalb der Hochlastzeitfenster muss erheblich unter seiner Jahreshöchstlast liegen (prozentuale Lastverlagerung): HS 10%, HS/MS 20%, MS 20%, MS/NS 30%, NS 30% und",
+     "height": 2806,
+     "index": 9,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      180,
+      2131,
+      1803,
+      2211
+     ],
+     "content": "- die Differenz zwischen Maximallast innerhalb der Hochlastfenster und Jahreshöchstlast des Jahres muss mindestens 100 kW betragen (absolute Mindestlastverlagerung).",
+     "height": 2806,
+     "index": 10,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    },
+    {
+     "bbox_2d": [
+      178,
+      2302,
+      1188,
+      2391
+     ],
+     "content": "Weitere Hinweise erhalten Sie auf den Seiten der BNetzA unter:\n\nBundesnetzagentur - Ind. Netzentgelte Strom",
+     "height": 2806,
+     "index": 11,
+     "label": "text",
+     "native_label": "text",
+     "width": 1984
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1326, 121, 1792, 273])\n\n<div align=\"center\">\n\n# Hochlastzeitfenster für atypische Netznutzung nach § 19 Abs. 2 Satz 1 StromNEV - 2024\n\n</div>\n\nNach § 19 Abs. 2 Satz 1 der Stromnetzentgeltverordnung (StromNEV) können Letztverbraucher mit atypischem Verbrauchsverhalten unter bestimmten Bedingungen ein individuelles Netzentgelt für die Netznutzung erhalten.\n\nAtypisches Verbrauchsverhalten liegt vor, wenn die Zeitpunkte des maximalen Leistungsbezugs eines Letztverbrauchers außerhalb der vom Netzbetreiber veröffentlichten Hochlastzeitfenster liegen.\n\nNach Festlegung der Bundesnetzagentur (BNetzA) BK4-13-739 vom 11. Dezember 2013 veröffentlicht die N-ERGIE Netz GmbH für das Jahr 2024 folgende Hochlastzeitfenster:\n\n<table border=\"1\"><tr><td>Entnahmenetzebene</td><td>Winter Januar, Februar und Dezember</td><td>Frühling März bis Mai</td><td>Sommer Juni bis August.</td><td>Herbst September bis November</td></tr><tr><td>Hochspannung HS</td><td>08:45-09:30 Uhr\n09:45-10:00 Uhr\n12:30-19:15 Uhr</td><td></td><td></td><td></td></tr><tr><td>Umspannung in Mittelspannung HS/MS</td><td>08:45-10:00 Uhr\n11:15-11:30 Uhr\n12:30-19:15 Uhr</td><td></td><td></td><td></td></tr><tr><td>Mittelspannung MS</td><td>08:00-09:15 Uhr\n09:30-15:45 Uhr\n16:00-18:30 Uhr</td><td></td><td></td><td>17:15-17:30 Uhr</td></tr><tr><td>Umspannung in Niederspannung MS/NS</td><td>16:45-19:30 Uhr</td><td></td><td></td><td></td></tr><tr><td>Niederspannung NS</td><td>10:15-10:30 Uhr\n10:45-13:30 Uhr\n16:45-19:30 Uhr</td><td>13:45-14:00 Uhr</td><td></td><td></td></tr></table>\n\nDie Hochlastzeitfenster sind ausschließlich an Werktagen gültig. Brückentage werden als Werktage betrachtet. Wochenenden, gesetzliche Feiertage, die im gesamten Netzgebiet (Bayern und Baden-Württemberg) gleichzeitig gelten (nicht Maria Himmelfahrt), sowie die Zeit vom 24.12. bis einschließlich zum 01.01. gelten als Nebenzeiten. Die Hochlastzeitfenster können jährlich aktualisiert werden.\n\nZur Inanspruchnahme des individuellen Netzentgelts nach § 19 Abs. 2 Satz 1 StromNEV müssen weiterführende Bedingungen der oben genannten BNetzA-Festlegung erfüllt sein. Insbesondere sind das:\n\n- die Bagatellgrenze, die jährliche Entgeltreduzierung muss mindestens 500,00 € betragen,\n\n- der maximale Energiebezug (Maximallast) des Netzkunden innerhalb der Hochlastzeitfenster muss erheblich unter seiner Jahreshöchstlast liegen (prozentuale Lastverlagerung): HS 10%, HS/MS 20%, MS 20%, MS/NS 30%, NS 30% und\n\n- die Differenz zwischen Maximallast innerhalb der Hochlastfenster und Jahreshöchstlast des Jahres muss mindestens 100 kW betragen (absolute Mindestlastverlagerung).\n\nWeitere Hinweise erhalten Sie auf den Seiten der BNetzA unter:\n\nBundesnetzagentur - Ind. Netzentgelte Strom",
+  "model": "glm-ocr",
+  "request_id": "20261004023858fb8f2760b8e94017",
+  "usage": {
+   "completion_tokens": 1035,
+   "prompt_tokens": 3570,
+   "total_tokens": 4605
+  }
+ },
+ "source": "live"
+}

@@ -1,0 +1,68 @@
+# Golden label for bayreuth-2026-korr (Stadtwerke Bayreuth 2026)
+# Label from the PDF only, without looking at the pipeline's output. For every grid level x
+# season write the printed windows as "HH:MM-HH:MM" strings, or [] if the cell is printed
+# empty. Delete cells the table does not have; add levels it has. Then set verified: true and
+# your name in labeled_by.
+#
+# convention: interval_start | interval_end_physical | interval_end_labels |
+#             interval_end_ambiguous | assumed    (definitions: src/hlzf/models.py, Convention)
+# rules: kinds and value formats as in src/hlzf/prompts.py, e.g.
+#   {kind: bridge_days, value: working_day}, {kind: min_kw_diff, value: 100},
+#   {kind: holiday_handling, value: {states: [BY], mode: union, exclude: []}}
+# Chosen as: the corrected version; label what this file prints.
+document: bayreuth-2026-korr
+labeled_by: 'Mo'
+verified: true
+convention: ''
+cells:
+- grid_level: NE4
+  season: winter
+  windows: [8:45-18:30]
+- grid_level: NE4
+  season: spring
+  windows: []
+- grid_level: NE4
+  season: summer
+  windows: []
+- grid_level: NE4
+  season: autumn
+  windows: [10:15-14:15, 16:30-18:30]
+- grid_level: NE5
+  season: winter
+  windows: [8:30-13:45, 14:45-19:00]
+- grid_level: NE5
+  season: spring
+  windows: []
+- grid_level: NE5
+  season: summer
+  windows: []
+- grid_level: NE5
+  season: autumn
+  windows: [11:15-12:30, 17:00-18:45]
+- grid_level: NE6
+  season: winter
+  windows: [17:00-19:15]
+- grid_level: NE6
+  season: spring
+  windows: []
+- grid_level: NE6
+  season: summer
+  windows: []
+- grid_level: NE6
+  season: autumn
+  windows: [17:15-18:45]
+- grid_level: NE7
+  season: winter
+  windows: [17:00-19:15]
+- grid_level: NE7
+  season: spring
+  windows: []
+- grid_level: NE7
+  season: summer
+  windows: []
+- grid_level: NE7
+  season: autumn
+  windows: [17:15-18:30]
+rules:
+- kind: workdays_only
+  value: true

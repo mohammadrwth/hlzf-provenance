@@ -1,0 +1,116 @@
+{
+ "created_at": "2026-10-03T19:42:33.615676+00:00",
+ "key": "21dc52c4aff66e277aac9143cca2cbbd",
+ "model": "glm-ocr",
+ "page": 2,
+ "response": {
+  "created": 1791056553,
+  "data_info": {
+   "num_pages": 1,
+   "pages": [
+    {
+     "height": 2808,
+     "width": 1986
+    }
+   ]
+  },
+  "id": "20261004034227c3841ffac96b4663",
+  "layout_details": [
+   [
+    {
+     "bbox_2d": [
+      1356,
+      129,
+      1758,
+      247
+     ],
+     "height": 2808,
+     "index": 0,
+     "label": "image",
+     "native_label": "header_image",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      181,
+      377,
+      1804,
+      477
+     ],
+     "content": "<div align=\"center\">\n\nDie relevanten Zeitfenster basieren auf den Lastgangdaten vom September 2022 bis zum August 2023:\n\n</div>",
+     "height": 2808,
+     "index": 1,
+     "label": "text",
+     "native_label": "figure_title",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      190,
+      511,
+      1558,
+      1572
+     ],
+     "content": "<table border=\"1\"><tr><td colspan=\"4\">Hochlastzeitfenster 2024</td></tr><tr><td rowspan=\"2\">Spannungsebene</td><td rowspan=\"2\">Jahreszeit</td><td colspan=\"2\">1/4-h-Intervall</td></tr><tr><td>von</td><td>bis</td></tr><tr><td rowspan=\"5\">MS</td><td>Frühling</td><td>12:00</td><td>14:45</td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:15</td><td>16:15</td></tr><tr><td>Winter</td><td>17:15</td><td>18:15</td></tr><tr><td rowspan=\"5\">MS/NS</td><td>Frühling</td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:45</td><td>13:00</td></tr><tr><td>Winter</td><td>15:45</td><td>19:15</td></tr><tr><td rowspan=\"5\">NS</td><td>Frühling</td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:45</td><td>13:30</td></tr><tr><td>Winter</td><td>15:45</td><td>19:15</td></tr></table>",
+     "height": 2808,
+     "index": 2,
+     "label": "table",
+     "native_label": "table",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      181,
+      1666,
+      517,
+      1719
+     ],
+     "content": "Ansprechpartner",
+     "height": 2808,
+     "index": 3,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      181,
+      1757,
+      299,
+      1808
+     ],
+     "content": "Email",
+     "height": 2808,
+     "index": 4,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    },
+    {
+     "bbox_2d": [
+      464,
+      1757,
+      1145,
+      1811
+     ],
+     "content": "netznutzung@stadtwerke-ratingen.de",
+     "height": 2808,
+     "index": 5,
+     "label": "text",
+     "native_label": "text",
+     "width": 1986
+    }
+   ]
+  ],
+  "layout_visualization": [],
+  "md_results": "![](page=0,bbox=[1356, 129, 1758, 247])\n\n<div align=\"center\">\n\nDie relevanten Zeitfenster basieren auf den Lastgangdaten vom September 2022 bis zum August 2023:\n\n</div>\n\n<table border=\"1\"><tr><td colspan=\"4\">Hochlastzeitfenster 2024</td></tr><tr><td rowspan=\"2\">Spannungsebene</td><td rowspan=\"2\">Jahreszeit</td><td colspan=\"2\">1/4-h-Intervall</td></tr><tr><td>von</td><td>bis</td></tr><tr><td rowspan=\"5\">MS</td><td>Frühling</td><td>12:00</td><td>14:45</td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:15</td><td>16:15</td></tr><tr><td>Winter</td><td>17:15</td><td>18:15</td></tr><tr><td rowspan=\"5\">MS/NS</td><td>Frühling</td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:45</td><td>13:00</td></tr><tr><td>Winter</td><td>15:45</td><td>19:15</td></tr><tr><td rowspan=\"5\">NS</td><td>Frühling</td><td></td><td></td></tr><tr><td>Sommer</td><td></td><td></td></tr><tr><td>Herbst</td><td></td><td></td></tr><tr><td>Winter</td><td>12:45</td><td>13:30</td></tr><tr><td>Winter</td><td>15:45</td><td>19:15</td></tr></table>\n\nAnsprechpartner\n\nEmail\n\nnetznutzung@stadtwerke-ratingen.de",
+  "model": "glm-ocr",
+  "request_id": "20261004034227c3841ffac96b4663",
+  "usage": {
+   "completion_tokens": 551,
+   "prompt_tokens": 2244,
+   "total_tokens": 2795
+  }
+ },
+ "source": "live"
+}

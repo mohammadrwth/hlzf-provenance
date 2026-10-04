@@ -1,0 +1,111 @@
+{% macro thumb(rows) -%}
+<div class="thumb" aria-hidden="true">
+  {%- for r in rows -%}
+    {%- if loop.index0 and loop.index0 % 4 == 0 %}<div class="t gap"></div>{% endif -%}
+    <div class="t">{% for b in r.bars %}<i class="{{ b.status }}" style="left:{{ b.left }}%;width:{{ b.width }}%"></i>{% endfor %}</div>
+  {%- endfor -%}
+</div>
+{%- endmacro %}
+
+{% macro axis() -%}
+<div class="axis" aria-hidden="true">
+  {%- for h in [0, 3, 6, 9, 12, 15, 18, 21, 24] -%}
+    <span{% if h % 6 %} class="minor"{% endif %} style="left:{{ (h / 24 * 100)|round(4) }}%">{{ '%02d'|format(h) }}:00</span>
+  {%- endfor -%}
+</div>
+{%- endmacro %}
+
+{% macro ribbon(tracks, doc_id, link=true) -%}
+<div class="ribbon" role="group" aria-label="High-load windows by grid level and season, 00:00 to 24:00">
+  <div></div><div></div>{{ axis() }}<div></div>
+  {%- for t in tracks %}
+    {%- if not loop.first %}<div class="sep"></div>{% endif %}
+    {%- for s in t.seasons %}
+      {%- if loop.first %}
+      <div class="level" style="grid-row: span {{ t.seasons|length }}">{{ t.level }}<small>{{ t.name }}</small></div>
+      {%- endif %}
+      <div class="season{% if s.flagged %} flagged{% endif %}">{{ s.label }}{% if s.flagged %}<span class="visually-hidden">, open issue</span>{% endif %}</div>
+      <div class="track{% if s.flagged %} flagged{% endif %}">
+        {%- for b in s.bars %}
+          {%- if b.boundary %}<span class="boundary" style="left:{{ b.left - b.boundary }}%;width:{{ b.boundary }}%" title="First quarter-hour uncertain (convention)"></span>{% endif %}
+          {%- if link %}
+          <a class="bar {{ b.status }}{% if b.flagged %} flagged{% endif %}{% if b.invalid %} invalid{% endif %}{% if b.selected %} selected{% endif %}"
+             href="/doc/{{ doc_id }}?w={{ b.wid }}#review"
+             style="left:{{ b.left }}%;width:{{ b.width }}%"
+             title="{{ t.level }} {{ s.label }} {{ b.label }}"
+             aria-label="{{ t.level }} {{ s.label }} {{ b.label }}, {{ b.status }}">{{ b.label }}</a>
+          {%- else %}
+          <span class="bar {{ b.status }}{% if b.invalid %} invalid{% endif %}{% if b.selected %} selected{% endif %}"
+             style="left:{{ b.left }}%;width:{{ b.width }}%" title="{{ b.label }}">{{ b.label }}</span>
+          {%- endif %}
+        {%- endfor %}
+      </div>
+      <div class="hours{% if s.missing %} missing{% endif %}">
+        {%- if s.missing %}missing{% elif s.empty and not s.bars %}none{% else %}{{ '%.2f'|format(s.hours)|replace('.00','') }} h{% endif -%}
+      </div>
+    {%- endfor %}
+  {%- endfor %}
+</div>
+{%- endmacro %}
+
+{% macro legend(show_boundary=false) -%}
+<div class="legend">
+  <span><i></i>High-load window</span>
+  <span><i class="flag-key"></i>Has an open issue</span>
+  <span><i class="auto-key"></i>Auto-corrected (OCR + vision agree)</span>
+  <span><i class="ok-key"></i>Human-verified</span>
+  {% if show_boundary %}<span><i class="boundary-key"></i>First quarter-hour uncertain</span>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro chain(steps) -%}
+<ol class="chain">
+  {%- for s in steps %}
+  <li>
+    <div class="what">{{ s.label or s.entity }}</div>
+    {%- if s.activity_type %}
+    <div class="how">
+      {{ s.activity_type|replace('hlzf:', '') }}
+      {%- for a in s.agents %} by <span class="agent">{{ a.label or a.id }}</span>{% if a.type == 'prov:Person' %} (person){% endif %}{% endfor %}
+      {%- for k, v in s.facts %}; {{ k }} {{ v }}{% endfor %}
+    </div>
+    {%- endif %}
+    <div class="id">{{ s.entity }}</div>
+  </li>
+  {%- endfor %}
+</ol>
+{%- endmacro %}
+
+{% macro doctable(rows) %}
+<div class="scroll-x"><table class="doctable">
+  <thead>
+    <tr>
+      <th scope="col">Publication</th>
+      <th scope="col">Windows across the day</th>
+      <th scope="col" class="num">Windows</th>
+      <th scope="col" class="num hide-s">Auto-corrected</th>
+      <th scope="col" class="num">To review</th>
+      <th scope="col" class="num hide-s">Errors / warnings</th>
+      <th scope="col" class="hide-s">Timestamp convention</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in rows %}
+    <tr>
+      <td>
+        <a href="/doc/{{ d.id }}">{{ display_name(d) }}</a>{% if d.source == 'upload' %} <span class="chip" title="Uploaded by {{ d.uploaded_by }}{% if d.filename %}: {{ d.filename }}{% endif %}">uploaded</span>{% endif %}<br>
+        <span class="small muted">{{ d.year or 'year not read yet' }}{% if d.version_label %}, {{ d.version_label }}{% endif %}{% if d.publication_date %}, published {{ d.publication_date }}{% endif %}</span>
+      </td>
+      <td>{{ thumb(d.ribbon) }}</td>
+      <td class="num">{{ d.n_windows }}</td>
+      <td class="num hide-s">{{ d.n_auto }}</td>
+      <td class="num">{{ d.n_review }}</td>
+      <td class="num hide-s">{{ d.errors }} / {{ d.warnings }}</td>
+      <td class="hide-s small">{{ d.convention_label }}</td>
+      <td><span class="status {{ d.status }}">{{ d.status_label }}</span></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+{% endmacro %}

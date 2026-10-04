@@ -1,0 +1,150 @@
+{
+  "bayreuth-2026-korr": {
+    "bytes": 108448,
+    "fetched_at": "2026-10-03T15:40:07+00:00",
+    "headers": {
+      "content-length": "108448",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:07 GMT",
+      "last-modified": "Wed, 17 Dec 2025 15:37:30 GMT"
+    },
+    "sha256": "cbd9769455a96acf97fbf27408ab1aa940da7196806b1048b02d1f3848f9ee80",
+    "url": "https://www.stadtwerke-bayreuth.de/fileadmin/user_upload/netz/Netzentgelte___Preise/strom-hochlastzeitfenster-2026-2.pdf"
+  },
+  "dettelbach-2026": {
+    "bytes": 432952,
+    "fetched_at": "2026-10-03T15:40:09+00:00",
+    "headers": {
+      "content-length": "432952",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:09 GMT",
+      "last-modified": "Mon, 06 Oct 2025 11:53:14 GMT"
+    },
+    "sha256": "0144f3acc9f0ebfc3b10af1d9078f1d9d793cb8dc651bc1b947b9197da3ce8b1",
+    "url": "https://dettelbach-stadtwerke.de/wp-content/uploads/2025/10/2025-10-06_Hochlastzeitfenster-2026.pdf"
+  },
+  "n-ergie-2024": {
+    "bytes": 113750,
+    "fetched_at": "2026-10-03T15:40:07+00:00",
+    "headers": {
+      "content-length": "113750",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:07 GMT",
+      "last-modified": "Fri, 02 Oct 2026 03:43:41 GMT"
+    },
+    "sha256": "01fd703be45b1855996a814aa44ab3e9f3e1961b2270429c50b89236c478ad9a",
+    "url": "https://www.n-ergie-netz.de/public/remotemedien/media/nng/infothek_3/veroeffentlichungen_1/weitere_veroeffentlichungen/N_Hochlastzeitfenster_2024.pdf"
+  },
+  "n-ergie-2026": {
+    "bytes": 122815,
+    "fetched_at": "2026-10-03T15:40:07+00:00",
+    "headers": {
+      "content-length": "122815",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:07 GMT",
+      "last-modified": "Fri, 02 Oct 2026 03:43:41 GMT"
+    },
+    "sha256": "27e5e2f0b575651db1a2cfff5910a1923c30deebdbde5676ee72b089b8689e0a",
+    "url": "https://www.n-ergie-netz.de/public/remotemedien/media/nng/infothek_3/veroeffentlichungen_1/weitere_veroeffentlichungen/N_Hochlastzeitfenster_2026_NNG.pdf"
+  },
+  "passau-2024": {
+    "bytes": 76174,
+    "fetched_at": "2026-10-03T15:40:08+00:00",
+    "headers": {
+      "content-length": "76174",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:08 GMT",
+      "last-modified": "Fri, 09 Aug 2024 11:15:50 GMT"
+    },
+    "sha256": "b98756ea39dbc7309f088d0ddd011df8736097e0abddc2968936260ab6b5ee8c",
+    "url": "https://netze.stadtwerke-passau.de/files/dateien/netze/daten/strom/Netzzugang/Hochlastzeitfenster/Hochlastzeitfenster_2024.pdf"
+  },
+  "passau-2026": {
+    "bytes": 76492,
+    "fetched_at": "2026-10-03T15:40:08+00:00",
+    "headers": {
+      "content-length": "76492",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:08 GMT",
+      "last-modified": "Wed, 29 Oct 2025 09:12:35 GMT"
+    },
+    "sha256": "ea77bca1bb1d43fcba3a7dc017554cfd933b6266c352925c2e4ca3ba4ccd7e18",
+    "url": "https://netze.stadtwerke-passau.de/files/dateien/netze/daten/strom/Netzzugang/Hochlastzeitfenster/Hochlastzeitfenster_2026.pdf"
+  },
+  "ratingen-2024": {
+    "bytes": 45659,
+    "fetched_at": "2026-10-03T15:40:07+00:00",
+    "headers": {
+      "content-length": "45659",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:07 GMT",
+      "last-modified": "Thu, 08 May 2025 14:47:25 GMT"
+    },
+    "sha256": "4e3df969c64b5db0e8ea013f21ce551e61fccecf3553463b4a30ffb9108e8285",
+    "url": "https://netze.stadtwerke-ratingen.de/fileadmin/Netze/Dokumente/HLZF_2024.pdf"
+  },
+  "ratingen-2026": {
+    "bytes": 59998,
+    "fetched_at": "2026-10-03T16:16:38+00:00",
+    "headers": {
+      "content-length": "59998",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 16:16:38 GMT",
+      "last-modified": "Thu, 30 Oct 2025 14:57:24 GMT"
+    },
+    "sha256": "25c3d7e07204fd166272536617c139d1dfeae8d09e3fc954ec25d28b7a6565a0",
+    "url": "https://netze.stadtwerke-ratingen.de/fileadmin/Netze/Dokumente/HLZF_2026.pdf"
+  },
+  "schweinfurt-2025": {
+    "bytes": 140883,
+    "fetched_at": "2026-10-03T15:40:08+00:00",
+    "headers": {
+      "content-length": "140883",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:08 GMT",
+      "etag": "\"22653-625acdc4cc5c7\"",
+      "last-modified": "Wed, 30 Oct 2024 07:43:40 GMT"
+    },
+    "sha256": "19c2bbd6d7f061ffc63fa43ffcd9fb82effcb1c740d298bc6ce434adedba8b91",
+    "url": "https://www.stadtwerke-sw.de/_Resources/Persistent/0/c/2/6/0c26501c62d315e2980c34040b206880ca659e33/Hochlastzeitfenster%202025.pdf"
+  },
+  "schweinfurt-2026": {
+    "bytes": 456174,
+    "fetched_at": "2026-10-03T15:40:08+00:00",
+    "headers": {
+      "content-length": "456174",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:08 GMT",
+      "etag": "\"6f5ee-640b6723b1359\"",
+      "last-modified": "Thu, 09 Oct 2025 09:30:04 GMT"
+    },
+    "sha256": "4d43f0b96727b18c303b1df2266467bcfd71d9b7d2cae2346a655fadf869f739",
+    "url": "https://www.stadtwerke-sw.de/_Resources/Persistent/7/9/d/b/79dbc831c07dec3fa0808639ad2d1059f2e83e8a/Hochlastzeitfenster%202026.pdf"
+  },
+  "waldmuenchen-2026": {
+    "bytes": 127580,
+    "fetched_at": "2026-10-03T15:40:09+00:00",
+    "headers": {
+      "content-length": "127580",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:09 GMT",
+      "etag": "\"1f25c-64220f2f47015\"",
+      "last-modified": "Mon, 27 Oct 2025 09:59:02 GMT"
+    },
+    "sha256": "2feadbe0dcf74caa58c5560c9cf7b3bb8a814b1d090bac0b3a999bc02b2f0b21",
+    "url": "https://stadtwerke-waldmuenchen.de/wp-content/uploads/2025/10/Hochlastzeitfenster_Par19NEV-2026.pdf"
+  },
+  "wunsiedel-2024": {
+    "bytes": 61657,
+    "fetched_at": "2026-10-03T15:40:07+00:00",
+    "headers": {
+      "content-length": "61657",
+      "content-type": "application/pdf",
+      "date": "Sat, 03 Oct 2026 15:40:07 GMT",
+      "etag": "W/\"61657-1700745082000\"",
+      "last-modified": "Thu, 23 Nov 2023 13:11:22 GMT"
+    },
+    "sha256": "c140df9a502bda66c87cb037baa58689e5d2185976005a9899218eeffaa1dba2",
+    "url": "https://www.gipsprojekt.de/featureGips/SWWWunsiedel/EnWGTool/Stromnetz/Netzzugang__Entgelte/Hochlastzeitfenster/HLZF-SWW-2024-20231120-extern-002.pdf"
+  }
+}

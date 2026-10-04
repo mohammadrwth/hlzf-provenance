@@ -1,0 +1,80 @@
+# Golden label for n-ergie-2026 (N-ERGIE Netz GmbH 2026)
+# Label from the PDF only, without looking at the pipeline's output. For every grid level x
+# season write the printed windows as "HH:MM-HH:MM" strings, or [] if the cell is printed
+# empty. Delete cells the table does not have; add levels it has. Then set verified: true and
+# your name in labeled_by.
+#
+# convention: interval_start | interval_end_physical | interval_end_labels |
+#             interval_end_ambiguous | assumed    (definitions: src/hlzf/models.py, Convention)
+# rules: kinds and value formats as in src/hlzf/prompts.py, e.g.
+#   {kind: bridge_days, value: working_day}, {kind: min_kw_diff, value: 100},
+#   {kind: holiday_handling, value: {states: [BY], mode: union, exclude: []}}
+# Chosen as: several windows per cell.
+document: n-ergie-2026
+labeled_by: 'Mo'
+verified: true
+convention: ''
+cells:
+- grid_level: NE3
+  season: winter
+  windows: [7:45-9:00,15:45-19:15]
+- grid_level: NE3
+  season: spring
+  windows: []
+- grid_level: NE3
+  season: summer
+  windows: []
+- grid_level: NE3
+  season: autumn
+  windows: [16:00-16:15,17:00-17:15]
+- grid_level: NE4
+  season: winter
+  windows: [7:30-9:00,16:00-19:15, 19:30-19:45]
+- grid_level: NE4
+  season: spring
+  windows: []
+- grid_level: NE4
+  season: summer
+  windows: []
+- grid_level: NE4
+  season: autumn
+  windows: [16:30-16:45,17:00-17:15]
+- grid_level: NE5
+  season: winter
+  windows: [7:45-9:00,16:30-19:15, 19:30-19:45]
+- grid_level: NE5
+  season: spring
+  windows: []
+- grid_level: NE5
+  season: summer
+  windows: []
+- grid_level: NE5
+  season: autumn
+  windows: [16:45-18:45]
+- grid_level: NE6
+  season: winter
+  windows: [17:00-19:15]
+- grid_level: NE6
+  season: spring
+  windows: []
+- grid_level: NE6
+  season: summer
+  windows: []
+- grid_level: NE6
+  season: autumn
+  windows: [17:30-18:15]
+- grid_level: NE7
+  season: winter
+  windows: [11:00-12:30,17:30-18:15]
+- grid_level: NE7
+  season: spring
+  windows: []
+- grid_level: NE7
+  season: summer
+  windows: []
+- grid_level: NE7
+  season: autumn
+  windows: []
+rules:
+- kind: workdays_only
+  value: true

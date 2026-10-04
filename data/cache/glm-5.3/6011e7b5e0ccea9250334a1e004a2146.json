@@ -1,0 +1,20 @@
+{
+ "cost_usd": 0.007204,
+ "created_at": "2026-10-03T18:41:21+00:00",
+ "input_sha256": "9ff2362a228a9e2869bffa0a6b9cd1d6c798cdd5ff9b9ba4a291cf33b6f93f0f",
+ "key": "6011e7b5e0ccea9250334a1e004a2146",
+ "latency_ms": 11304,
+ "model": "glm-5.3",
+ "prompt_hash": "9230e97ee402e1a7",
+ "prompt_version": "extract-v2",
+ "purpose": "extract:text",
+ "repaired": false,
+ "response_text": "{\"dso_name\":{\"value\":\"Stadtwerke Ratingen\",\"page\":2,\"quote\":\"netznutzung@stadtwerke-ratingen.de\"},\"validity_year\":{\"value\":2024,\"page\":1,\"quote\":\"Hochlastzeitfenster 2024 für atypische\"},\"publication_date\":{\"value\":\"2023-10-31\",\"page\":1,\"quote\":\"(Stand 31.10.2023)\"},\"version_label\":null,\"correction_note\":null,\"convention\":{\"meter_label\":\"end\",\"page\":1,\"quote\":\"Bei den Zeiten ist jeweils das Ende des 1/4-Stunden-Intervalls angegeben\",\"worked_example\":{\"listed_start\":\"08:00\",\"first_timestamp\":\"08:15\"}},\"levels_listed\":[{\"label\":\"MS\",\"page\":2,\"quote\":\"MS\"},{\"label\":\"MS / NS\",\"page\":2,\"quote\":\"MS  / NS\"},{\"label\":\"NS\",\"page\":2,\"quote\":\"NS\"}],\"windows\":[{\"level_label\":\"MS\",\"season_label\":\"Frühling\",\"start\":\"12:00\",\"end\":\"14:45\",\"page\":2,\"quote\":\"12:00\",\"quote_end\":\"14:45\",\"level_quote\":\"MS\",\"season_quote\":\"Frühling\"},{\"level_label\":\"MS\",\"season_label\":\"Winter\",\"start\":\"12:15\",\"end\":\"16:15\",\"page\":2,\"quote\":\"12:15\",\"quote_end\":\"16:15\",\"level_quote\":\"MS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS\",\"season_label\":\"Winter\",\"start\":\"17:15\",\"end\":\"18:15\",\"page\":2,\"quote\":\"17:15\",\"quote_end\":\"18:15\",\"level_quote\":\"MS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS / NS\",\"season_label\":\"Winter\",\"start\":\"12:45\",\"end\":\"13:00\",\"page\":2,\"quote\":\"12:45\",\"quote_end\":\"13:00\",\"level_quote\":\"MS  / NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"MS / NS\",\"season_label\":\"Winter\",\"start\":\"15:45\",\"end\":\"19:15\",\"page\":2,\"quote\":\"15:45\",\"quote_end\":\"19:15\",\"level_quote\":\"MS  / NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"NS\",\"season_label\":\"Winter\",\"start\":\"12:45\",\"end\":\"13:30\",\"page\":2,\"quote\":\"12:45\",\"quote_end\":\"13:30\",\"level_quote\":\"NS\",\"season_quote\":\"Winter\"},{\"level_label\":\"NS\",\"season_label\":\"Winter\",\"start\":\"15:45\",\"end\":\"19:15\",\"page\":2,\"quote\":\"15:45\",\"quote_end\":\"19:15\",\"level_quote\":\"NS\",\"season_quote\":\"Winter\"}],\"empty_cells\":[{\"level_label\":\"MS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"MS\",\"season_label\":\"Herbst\",\"page\":2},{\"level_label\":\"MS / NS\",\"season_label\":\"Frühling\",\"page\":2},{\"level_label\":\"MS / NS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"MS / NS\",\"season_label\":\"Herbst\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Frühling\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Sommer\",\"page\":2},{\"level_label\":\"NS\",\"season_label\":\"Herbst\",\"page\":2}],\"rules\":[{\"kind\":\"workdays_only\",\"value\":true,\"level_label\":null,\"page\":1,\"quote\":\"Die Hochlastzeitfenster werden ausschließlich für Werktage ermittelt.\"},{\"kind\":\"bridge_days\",\"value\":\"off_peak_max_one\",\"level_label\":null,\"page\":1,\"quote\":\"maximal ein Brückentag sowie die Zeit zwischen Weihnachten und Neujahr\"},{\"kind\":\"holiday_handling\",\"value\":{\"states\":[],\"mode\":\"unspecified\",\"exclude\":[]},\"level_label\":null,\"page\":1,\"quote\":\"Wochenenden, Feiertage, maximal ein Brückentag\"},{\"kind\":\"christmas_period\",\"value\":{\"from\":null,\"to\":null},\"level_label\":null,\"page\":1,\"quote\":\"die Zeit zwischen Weihnachten und Neujahr\"}],\"anomalies\":[\"The document does not print the operator's full name, only an email address on page 2 (netznutzung@stadtwerke-ratingen.de); the operator name was inferred from that email.\"]}",
+ "sample": 0,
+ "source": "live",
+ "usage": {
+  "cached_tokens": 1472,
+  "input_tokens": 2513,
+  "output_tokens": 1219
+ }
+}

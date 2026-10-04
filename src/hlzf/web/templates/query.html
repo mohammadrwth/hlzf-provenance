@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Check a quarter-hour · HLZF provenance{% endblock %}
+{% block main %}
+<h1>Is this quarter-hour inside a high-load window?</h1>
+<p class="lede">True, false, or uncertain when the publication itself does not decide it.
+  Every answer carries the window, the calendar rule and the provenance behind it.</p>
+
+<form class="qform" action="/query" method="get"
+      hx-get="/query/result" hx-target="#result">
+  <label>Grid operator
+    <select name="dso">
+      {% for d in dsos %}<option value="{{ d.dso }}" {% if d.dso == form.dso %}selected{% endif %}>{{ d.dso }}{% if d.synthetic %} (synthetic){% endif %}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Grid level
+    <select name="level">
+      {% for lv in levels %}<option {% if lv == form.level %}selected{% endif %}>{{ lv }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Timestamp (ISO 8601 with offset)
+    <input name="ts" value="{{ form.ts }}" required>
+  </label>
+  <label>The timestamp names the quarter-hour's
+    <select name="ts_label">
+      <option value="start" {% if form.ts_label == 'start' %}selected{% endif %}>start</option>
+      <option value="end" {% if form.ts_label == 'end' %}selected{% endif %}>end (meter stamp)</option>
+      <option value="dso" {% if form.ts_label == 'dso' %}selected{% endif %}>as the DSO defines it</option>
+    </select>
+  </label>
+  <button class="primary">Check</button>
+</form>
+
+<div id="result" aria-live="polite">
+  {% if result or error %}{% include "_query_result.html" %}{% endif %}
+</div>
+{% endblock %}

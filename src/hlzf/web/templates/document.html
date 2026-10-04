@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ display_name(doc) }} {{ doc.year or '' }} · HLZF provenance{% endblock %}
+{% block main %}
+{% set view_page = (selected.page if selected and selected.page else 1) %}
+{% set pg = (pages | selectattr('page_no', 'equalto', view_page) | list | first) %}
+
+<div class="dochead">
+  <div>
+    <p class="small muted" style="margin:0 0 .3rem"><a href="/">Documents</a>{% if doc.synthetic %}, synthetic test corpus{% elif doc.source == 'upload' %}, <a href="/uploads">uploaded</a>{% endif %}</p>
+    <h1>{{ display_name(doc) }}{% if doc.year %}, {{ doc.year }}{% endif %}</h1>
+    {% if doc.version_label %}<p class="muted" style="margin:.2rem 0 0">{{ doc.version_label }}</p>{% endif %}
+  </div>
+  <div><span class="status {{ doc.status }}">{{ doc.status_label }}</span>
+    {%- if open_issues %}<span class="small muted">, {{ open_issues }} open issue{{ 's' if open_issues != 1 }}</span>{% endif %}</div>
+</div>
+
+<dl class="facts">
+  <div><dt>Timestamp convention</dt><dd>{{ doc.convention_label }}
+    <div class="small muted convention-note">{{ doc.convention_text }}
+      {% if doc.convention_quote %}<br><span class="quote">{{ doc.convention_quote }}</span>{% endif %}</div></dd></div>
+  <div><dt>Published</dt><dd>{{ doc.publication_date or 'not stated' }}</dd></div>
+  <div><dt>Source</dt><dd>
+    {% if doc.source == 'upload' %}
+      Uploaded by {{ doc.uploaded_by or 'unknown' }}{% if doc.fetched_at %}, {{ doc.fetched_at[:16].replace('T', ' ') }} UTC{% endif %}
+      <div class="small"><a href="/doc/{{ doc.id }}/pdf">{{ doc.filename or 'original PDF' }}</a>{% if doc.url %}, <a href="{{ doc.url }}" rel="noreferrer">DSO page</a>{% endif %}</div>
+    {% elif doc.url %}<a href="{{ doc.url }}" rel="noreferrer">DSO PDF</a>
+      {% if doc.path %}<span class="small">(<a href="/doc/{{ doc.id }}/pdf">local copy</a>)</span>{% endif %}
+    {% else %}generated test PDF{% endif %}
+    <div class="small faint">sha256 {{ (doc.sha256 or '')[:16] }}…</div></dd></div>
+  <div><dt>Model calls</dt><dd>{{ calls.n }} ({{ (calls.s or '').replace(',', ', ') }})
+    <div class="small faint">{{ (calls.m or '').replace(',', ', ') }}{% if calls.c %}; ${{ '%.4f'|format(calls.c) }}{% endif %}</div></dd></div>
+  {% if siblings %}
+  <div><dt>Other versions</dt><dd>
+    {% for s in siblings %}<a href="/doc/{{ s.id }}">{{ s.year }}{% if s.version_label %} ({{ s.version_label}}){% endif %}</a>
+      <a class="small" href="/diff?a={{ s.id if s.year < doc.year or (s.publication_date or '') < (doc.publication_date or '') else doc.id }}&b={{ doc.id if s.year < doc.year or (s.publication_date or '') < (doc.publication_date or '') else s.id }}">compare</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
+  </dd></div>
+  {% endif %}
+</dl>
+
+<section aria-labelledby="ribbon-h">
+  <h2 id="ribbon-h" class="visually-hidden">Windows across the day</h2>
+  {{ m.ribbon(ribbon, doc.id) }}
+  {{ m.legend(doc.convention in ('interval_end_ambiguous', 'interval_end_labels')) }}
+</section>
+
+<div class="workspace">
+  <div class="viewer">
+    {% if pg %}
+    <div class="sheetimg">
+      <img src="/doc/{{ doc.id }}/page/{{ view_page }}.png" alt="Page {{ view_page }} of the {{ display_name(doc) }} publication" loading="lazy">
+      {% for w in windows if w.page == view_page and w.bbox %}
+        {% set b = w.bbox %}
+        <a class="ev{% if selected and w.wid == selected.wid %} sel{% endif %}{% if w.status == 'needs-review' %} flagged{% endif %}"
+           href="/doc/{{ doc.id }}?w={{ w.wid }}#review"
+           style="left:{{ (b[0] / pg.width * 100)|round(3) }}%;top:{{ (b[1] / pg.height * 100)|round(3) }}%;width:{{ ((b[2]-b[0]) / pg.width * 100)|round(3) }}%;height:{{ ((b[3]-b[1]) / pg.height * 100)|round(3) }}%"
+           aria-label="Evidence for {{ w.grid_level }} {{ w.season_label }} {{ w.label }}"></a>
+      {% endfor %}
+    </div>
+    <p class="small muted" style="margin-top:.5rem">Page {{ view_page }} of {{ pages|length }}, {{ 'read via OCR' if pg.source == 'ocr' else 'text layer ' ~ pg.text_layer }}.
+      Boxes mark where each window's quote was found; the outlined one is selected.</p>
+    {% else %}
+    <div class="noimg">No page available for this document.</div>
+    {% endif %}
+  </div>
+
+  <div>
+    {% if selected %}
+    <div class="panel" id="review">
+      <h2>{{ selected.grid_level }} {{ selected.season_label }}, {{ selected.label }}</h2>
+      <p><span class="status {{ selected.status }}">{{ selected.status_label }}</span>
+        {#- -#}<span class="small muted">, page {{ selected.page }}, match {{ selected.match_ratio|round(0)|int }} %{% if selected.cell_aligned == 1 %}, in the claimed table cell{% elif selected.cell_aligned == 0 %}, <strong>not</strong> in the claimed table cell{% endif %}</span></p>
+      <p><span class="small muted">{{ 'Printed evidence the model cited:' if selected.origin == 'extract' else ('Printed evidence of the agreed reading:' if selected.origin == 'auto' else 'Evidence the original extraction cited:') }}</span>
+        <span class="quote">{{ selected.quote }}</span></p>
+
+      {% set mine = issues | selectattr('window') | selectattr('window.wid', 'equalto', selected.wid) | list %}
+      {% set cellis = issues | selectattr('cell_windows') | list %}
+      {% if selected.auto_note %}
+        <div class="verdict" style="border-left-color: var(--ok)">
+          <div class="headline">{{ 'Removed' if selected.status == 'rejected' else 'Auto-corrected' }} by consensus</div>
+          <div class="small">Cell set to {{ selected.auto_note.attribution.auto_correction.cell }}. {{ selected.auto_note.attribution.explanation }}</div>
+          <div class="small muted">The text extraction read this cell as {{ selected.auto_note.attribution.auto_correction.before | join(', ') or 'empty' }}; GLM-OCR of the page and the vision model agree on the new reading, and every value of it is printed in this cell. To undo, use the issue below.</div>
+        </div>
+      {% endif %}
+      {% if selected.cell_proposal and selected.cell_proposal.excludes_me and selected.status != 'rejected' %}
+        <div class="verdict" style="border-left-color: var(--err)">
+          <div class="headline">This value is not in the cell's agreed reading</div>
+          <div class="small">The interventions read {{ selected.cell_proposal.cell }} as {{ selected.cell_proposal.label }}. Approving keeps a value they do not see; check the page image first.</div>
+        </div>
+      {% endif %}
+      {% for i in mine + cellis if selected.status in ('auto-ok', 'needs-review', 'auto-corrected') and not i.resolved and (i.window or (i.cell_windows | selectattr('wid', 'equalto', selected.wid) | list)) and i.severity != 'info' %}
+        <div class="verdict" style="border-left-color: var(--err)">
+          <div class="headline">{{ i.title }}</div>
+          <div class="small">{{ i.message }}</div>
+          {% if i.attribution and i.attribution.suggestion %}<div class="small">Suggested from the intervention: {{ i.attribution.suggestion }}</div>{% endif %}
+        </div>
+      {% endfor %}
+
+      {% if selected.status in ('auto-ok', 'needs-review', 'auto-corrected') %}
+      {% if selected.cell_proposal %}
+      <form class="review" method="post" action="/doc/{{ doc.id }}/cell">
+        <input type="hidden" name="level" value="{{ selected.cell_proposal.level }}">
+        <input type="hidden" name="season" value="{{ selected.cell_proposal.season }}">
+        <input type="hidden" name="windows" value="{{ selected.cell_proposal.windows }}">
+        <input type="hidden" name="reviewer" value="{{ reviewer }}">
+        <input type="hidden" name="comment" value="Set the cell to the intervention's reading after checking the page image.">
+        <div class="row"><button class="primary">Set {{ selected.cell_proposal.cell }} to {{ selected.cell_proposal.label }}</button>
+          <span class="small muted">adds, changes and removes values of this cell; check the page image first</span></div>
+      </form>
+      {% elif selected.suggestion %}
+      <form class="review" method="post" action="/window/{{ selected.wid }}/review">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="start" value="{{ selected.suggestion.start }}">
+        <input type="hidden" name="end" value="{{ selected.suggestion.end }}">
+        <input type="hidden" name="reviewer" value="{{ reviewer }}">
+        <input type="hidden" name="comment" value="Applied the intervention's suggestion ({{ selected.suggestion.source }}) after checking the page.">
+        <div class="row"><button class="primary">Correct to {{ selected.suggestion.label }}</button>
+          <span class="small muted">{{ selected.suggestion.source }}; check it against the page image first</span></div>
+      </form>
+      {% endif %}
+      <form class="review" method="post" action="/window/{{ selected.wid }}/review">
+        <div class="row">
+          <label>Reviewer <input name="reviewer" value="{{ reviewer }}" size="12"></label>
+          <button {% if not selected.suggestion and not selected.cell_proposal %}class="primary"{% endif %} name="action" value="approve">Approve{{ ' as extracted' if selected.origin == 'extract' else '' }}</button>
+        </div>
+        <div class="row">
+          <label>Start <input class="time" name="start" value="{{ selected.label.split('–')[0] }}" pattern="[0-2][0-9]:[0-5][0-9]"></label>
+          <label>End <input class="time" name="end" value="{{ selected.label.split('–')[1] }}" pattern="[0-2][0-9]:[0-5][0-9]"></label>
+          <label style="flex:1 1 14rem">Comment (required to edit or reject)
+            <input name="comment" placeholder="e.g. PDF prints 19:45, model read 19:15"></label>
+        </div>
+        <div class="row">
+          <button name="action" value="edit">Save edit</button>
+          <button class="danger" name="action" value="reject">Reject value</button>
+        </div>
+      </form>
+      {% endif %}
+
+      {% if history|length > 1 %}
+      <h3 style="margin-top:1rem">Revisions</h3>
+      <ol class="small">
+        {% for h in history %}<li>{{ h.label }}, {{ h.status_label }}{% if h.origin == 'review' %} (review){% endif %}</li>{% endfor %}
+      </ol>
+      {% endif %}
+
+      <h3 style="margin-top:1rem">Provenance, from this value back to the source</h3>
+      {{ m.chain(provenance) }}
+      <p class="small" style="margin-top:.6rem"><a href="/api/prov?window_id={{ selected.wid }}">Download as W3C PROV-JSON</a></p>
+    </div>
+    {% else %}
+    <div class="panel">
+      <p style="margin:0">Select a window in the strip, the page or the table to see its evidence,
+        its provenance chain and the review actions.</p>
+    </div>
+    {% endif %}
+
+    <div class="panel" id="issues">
+      <h2>Issues</h2>
+      {% for i in issues %}
+      <article class="issue{% if i.resolved %} resolved{% endif %}">
+        <header>
+          <span class="sev {{ i.severity }}">{{ i.title }}</span>
+          <span class="stage {{ i.suspected_stage }}" title="Suspected stage">{{ i.stage_label }}</span>
+          {% if i.window %}<a class="small" href="/doc/{{ doc.id }}?w={{ i.window.wid }}#review">{{ i.window.grid_level }} {{ i.window.season_label }} {{ i.window.label }}</a>
+          {% elif i.cell_windows %}<a class="small" href="/doc/{{ doc.id }}?w={{ i.cell_windows[0].wid }}#review">{{ i.cell }}</a>
+          {% elif i.cell %}<span class="small">{{ i.cell }}</span>{% endif %}
+          {% if i.resolved == 2 %}<span class="small faint">settled by consensus</span>{% elif i.resolved %}<span class="small faint">resolved</span>{% endif %}
+        </header>
+        <p class="small">{{ i.message }}</p>
+        {% if i.attribution %}
+        {% set a = i.attribution %}
+        <div class="verdict">
+          <div class="headline">Fault located at: {{ i.verdict_label }}{% if a.confidence %}, {{ a.confidence }} confidence{% endif %}</div>
+          <div class="small">{{ a.explanation }}</div>
+          <dl>
+            <dt>Method</dt><dd>{% if a.method == 'channel_agreement' %}text and vision channels read the same print{% elif a.method == 'resample' %}resample the extractor on fixed input{% else %}resample, then swap parse for OCR{% endif %}</dd>
+            {% if a.n %}<dt>Resamples</dt><dd>{{ a.persisted }} of {{ a.valid }} reproduced the symptom{% if a.p_hat is not none %} (p̂ = {{ '%.2f'|format(a.p_hat) }}{% if a.ci %}, 95 % CI {{ '%.2f'|format(a.ci[0]) }}–{{ '%.2f'|format(a.ci[1]) }}{% endif %}){% endif %}</dd>{% endif %}
+            {% if a.swap %}<dt>Parse swap</dt><dd>{{ a.swap.intervention }}: symptom {{ 'still present' if a.swap.symptom_after_swap else 'gone' }}{% if a.swap.swap_reading %}; OCR reads {{ a.swap.swap_reading }}{% endif %}</dd>{% endif %}
+            {% if a.suggestion %}<dt>Suggested value</dt><dd>{{ a.suggestion }}</dd>{% endif %}
+            {% if a.auto_correction %}<dt>Consensus correction</dt><dd>{% if a.auto_correction.applied %}applied: cell set to {{ a.auto_correction.cell }}{% else %}not applied: {{ a.auto_correction.reason }}{% endif %}</dd>{% endif %}
+          </dl>
+        </div>
+        {% endif %}
+        {% if i.undo %}
+        <form class="review" method="post" action="/doc/{{ doc.id }}/cell">
+          <input type="hidden" name="level" value="{{ i.undo.level }}">
+          <input type="hidden" name="season" value="{{ i.undo.season }}">
+          <input type="hidden" name="windows" value="{{ i.undo.windows }}">
+          <input type="hidden" name="reviewer" value="{{ reviewer }}">
+          <div class="row">
+            <label style="flex:1 1 16rem">Comment <input name="comment" placeholder="why the text reading is right after all" required></label>
+            <button>Undo: set {{ i.undo.cell }} back to {{ i.undo.label }}</button>
+          </div>
+        </form>
+        {% endif %}
+        {% if i.apply %}
+        <form class="review" method="post" action="/doc/{{ doc.id }}/cell">
+          <input type="hidden" name="level" value="{{ i.apply.level }}">
+          <input type="hidden" name="season" value="{{ i.apply.season }}">
+          <input type="hidden" name="windows" value="{{ i.apply.windows }}">
+          <input type="hidden" name="reviewer" value="{{ reviewer }}">
+          <input type="hidden" name="comment" value="Set the cell to the intervention's reading after checking the page image.">
+          <div class="row"><button>Set {{ i.apply.cell }} to {{ i.apply.label }}</button></div>
+        </form>
+        {% endif %}
+        {% if not i.resolved and not i.window and not i.cell_windows and i.severity in ('error', 'warning') %}
+        <form class="review" method="post" action="/issue/{{ i.iid }}/ack">
+          <div class="row">
+            <label style="flex:1 1 16rem">Comment <input name="comment" placeholder="e.g. confirmed with the DSO by email" required></label>
+            <input type="hidden" name="reviewer" value="{{ reviewer }}">
+            <button>Mark as reviewed</button>
+          </div>
+        </form>
+        {% endif %}
+      </article>
+      {% else %}
+      <p class="muted">No issues.</p>
+      {% endfor %}
+    </div>
+
+    <div class="panel">
+      <h2>Windows</h2>
+      <div class="scroll-x"><table class="wtable">
+        <thead><tr><th>Level</th><th>Season</th><th>Window</th><th>Status</th><th>Evidence</th></tr></thead>
+        <tbody>
+        {% for w in windows %}
+          <tr class="{% if selected and w.wid == selected.wid %}sel{% endif %}">
+            <td>{{ w.grid_level }}</td>
+            <td>{{ w.season_label }}</td>
+            <td class="when"><a href="/doc/{{ doc.id }}?w={{ w.wid }}#review">{{ w.label }}</a></td>
+            <td><span class="status {{ w.status }}">{{ w.status_label }}</span></td>
+            <td class="small"><span class="quote">{{ w.quote }}</span> <span class="faint">p. {{ w.page }}</span></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="panel">
+      <h2>Rules printed in the document</h2>
+      {% if rules %}
+      <table class="wtable">
+        <thead><tr><th>Rule</th><th>Reading</th><th>As printed</th></tr></thead>
+        <tbody>
+        {% for r in rules %}
+          <tr>
+            <td>{{ r.name }}{% if r.grid_level %} ({{ r.grid_level }}){% endif %}</td>
+            <td class="small">{{ r.text }}{% if not r.resolved %}<br><span style="color:var(--warn)">not decidable per date</span>{% endif %}</td>
+            <td class="small"><span class="quote">{{ r.quote }}</span></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}<p class="muted">The document states no further rules.</p>{% endif %}
+    </div>
+  </div>
+</div>
+{% if doc.source == 'upload' %}
+<section aria-labelledby="remove-h" class="remove">
+  <details>
+    <summary id="remove-h">Remove this upload</summary>
+    <form method="post" action="/doc/{{ doc.id }}/remove" class="row">
+      <p class="small muted">Deletes the file and everything read from it. The provenance graph keeps
+        the record, plus who removed it.</p>
+      <input type="hidden" name="reviewer" value="{{ reviewer }}">
+      <button class="danger" type="submit">Remove {{ doc.filename or doc.id }}</button>
+    </form>
+  </details>
+</section>
+{% endif %}
+{% endblock %}
