@@ -281,67 +281,7 @@ uv run hlzf eval --write-readme       # accuracy vs. golden labels, cost, attrib
 uv run pytest                         # 147 tests, no network, no key
 ```
 
-Model calls that do not depend on each other (text and vision extraction, the five resamples
-and the OCR of each page) run in parallel, `HLZF_PARALLEL` at a time (default 4); rate-limit
-answers are retried with backoff, and the budget guard reserves each call's worst-case cost
-before it starts.
 
-**Uploads.** A PDF uploaded in the UI is checked (a PDF, not encrypted, at most 25 MB and 20
-pages: `HLZF_UPLOAD_MAX_MB`, `HLZF_UPLOAD_MAX_PAGES`), stored unchanged in `data/uploads/` with
-a registry of who added it when, and processed on a background thread; the page polls the
-stages and opens the document when it is done. Hints (operator, year, federal states, source
-URL) are optional; one that contradicts the document becomes an issue. `hlzf run` reprocesses
-uploads like corpus documents (after a prompt change, for instance), and a removed upload
-keeps its PROV record plus who withdrew it. Without a key an upload is stored and parsed, then
-waits for a retry.
-
-Responses from live runs are cached in `data/cache/` (committed), so `HLZF_OFFLINE=1` replays
-them without a key; the PDFs themselves are not committed (third-party documents), so an
-offline replay of real documents needs `hlzf fetch` first, and replays only if the DSO has not
-changed the file since.
-
-**Query semantics.** The unit is the quarter-hour. `--ts` names one quarter-hour and
-`--ts-label start|end|dso` says whether the timestamp is its start, its end (several
-publications say their times mark quarter-hour ends), or whatever the DSO's document says.
-The answer is `true`, `false` or `uncertain`; uncertain means the publication does not decide
-it (convention ambiguity, an unnamed bridge day, a municipality-dependent holiday). If, as I
-understand it, a peak inside a window costs the reduced fee, a caller should treat `uncertain`
-as inside. The API is the same: `GET /api/hlzf/check`.
-
-## Limitations
-
-- The real-document accuracy rests on three hand-labeled publications. That is a smoke test,
-  not a benchmark; the table reports counts, and the synthetic corpus only tests the checks.
-- Grounding proves a quote exists on its page and matches its value. Whether it sits in the
-  right table cell is checked with line geometry, which is a heuristic: merged cells and
-  unusual layouts can cause false alarms (they go to review) or misses (the vision
-  cross-check is the second line of defence).
-- Z.ai offers JSON mode, not schema-enforced output, so every response is validated with
-  pydantic and repaired once. GLM-5.3 always reasons and is sampled at temperature 1:
-  reruns differ, and reproducibility comes from the response cache only.
-- GLM-OCR works live with a base64 PDF; unlike the docs say, its `bbox_2d` come in pixels of
-  the rendered page. If OCR fails, the parse swap falls back to the vision reading and says
-  that the intervention is then confounded (the model changes together with the parse stage).
-- Layout text is only as good as the PDF's text positions. A scanned page without a text layer
-  goes through OCR; a text layer whose characters differ from the print is caught by the vision
-  cross-check, not by the parse stage.
-- The consensus correction trusts two image-based readings over the text reading. Two models
-  could misread a blurry page the same way; the guard is that every agreed value must be
-  printed with exactly these times in the claimed cell of the PDF text layer (or of the OCR
-  page, when the intervention showed the text layer to be wrong). `HLZF_AUTOCORRECT=0` turns
-  it off, leaving the suggestion to a person.
-- The convention check reads German phrasing with patterns. A worked example worded in a way
-  the patterns do not recognise is downgraded to `interval_end_ambiguous`, which is the safe
-  direction (the first quarter-hour becomes `uncertain`), and the issue says so.
-- The tool reads windows and the rules printed next to them. It does not check whether a site
-  qualifies for a reduced grid fee; that needs load data and more domain knowledge than I have.
-- My reading of the rules is limited to what the publications and the one linked ruling say.
-  Holidays, bridge days and the timestamp convention follow each document's wording; where the
-  wording leaves a case open, the answer is `uncertain`, not my guess. Corrections from people
-  who know the domain are welcome.
-- Reprocessing a changed document starts its review over; earlier decisions stay in the PROV
-  history but are not carried over automatically. Single user, no authentication.
-- Not legal advice.
 
 ## Next steps
 
